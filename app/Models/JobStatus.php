@@ -8,6 +8,4 @@ class JobStatus extends Model
 {
     const AVAILABLE = 1,
           EXPIRED   = 2;
-
-    protected $table = 'trangthai_tintuyendung';
 }
