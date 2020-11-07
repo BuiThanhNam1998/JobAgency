@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJobStatusTable extends Migration
+class CreateProfileStatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateJobStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('job_status', function (Blueprint $table) {
+        Schema::create('profile_statuses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateJobStatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job_status');
+        Schema::dropIfExists('profile_statuses');
     }
 }

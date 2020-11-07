@@ -20,10 +20,10 @@ class CreateTableScheduleUser extends Migration
 
             $table->unique(['schedule_id', 'user_id']);
 
-            $table->foreign('schedule_id')->references('id')->on('schedule')
+            $table->foreign('schedule_id')->references('id')->on('schedules')
                 ->onDelete('cascade');
 
-            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -11,7 +11,7 @@ class PageController extends Controller
 {
     public function getHome() 
     {
-        $newJobs = Job::where('trangthai_id', JobStatus::AVAILABLE)
+        $newJobs = Job::where('status_id', JobStatus::AVAILABLE)
                     ->orderBy('created_at', 'DESC')
                     ->paginate(9);
 

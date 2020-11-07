@@ -11,7 +11,7 @@ class UserTableSeeder extends Seeder
      */
     public function run(Faker\Generator $faker)
     {
-        $role = \App\Modesl\Role::query()->get()->pluck('id', 'name');
+        $role = \App\Models\Role::query()->get()->pluck('id', 'name');
 
         \App\Models\User::query()->create([
             'name' => 'Nguyễn Hoàng Anh - GĐQL',
