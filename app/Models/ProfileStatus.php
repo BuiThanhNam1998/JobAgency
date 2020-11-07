@@ -5,5 +5,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProfileStatus extends Model
 {
-
+    protected $table = 'profile_statuses';
 }

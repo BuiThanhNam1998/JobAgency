@@ -11,14 +11,6 @@ class JobTableSeeder extends Seeder
      */
     public function run()
     {
-//        $career = \App\Models\Career::query()->get()->pluck('id', 'name');
-//        $status_id = \App\Models\JobStatus::query()->get()->pluck('id','name');
-//        \App\Models\Job::query()->create([
-//            'description'=>'Tuyển gấp 50 nhân viên',
-//            'title'=>'Tuyển kỹ sư có kinh nghiệm',
-//            'career_id'=>$career['Công nghệ thông tin'],
-//            'status_id'=>$status_id['Đang tuyển']
-//        ]);
         $career = \App\Models\Career::query()->get()->pluck('id', 'name');
         $status_id = \App\Models\JobStatus::query()->get()->pluck('id','name');
         \App\Models\Job::query()->create([

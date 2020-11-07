@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProfileTable extends Migration
+class CreateProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProfileTable extends Migration
      */
     public function up()
     {
-        Schema::create('profile', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('identity_number');
@@ -38,11 +38,11 @@ class CreateProfileTable extends Migration
             $table->unsignedInteger('job_id');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
-            $table->foreign('place_identity_card_id')->references('id')->on('city')->onDelete('cascade');
-            $table->foreign('city_id')->references('id')->on('city')->onDelete('cascade');
-            $table->foreign('job_id')->references('id')->on('job')->onDelete('cascade');
-            $table->foreign('profile_status_id')->references('id')->on('profile_status')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('place_identity_card_id')->references('id')->on('cities')->onDelete('cascade');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
+            $table->foreign('profile_status_id')->references('id')->on('profile_statuses')->onDelete('cascade');
         });
     }
 
@@ -53,6 +53,6 @@ class CreateProfileTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profile');
+        Schema::dropIfExists('profiles');
     }
 }

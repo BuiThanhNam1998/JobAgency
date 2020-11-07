@@ -45,15 +45,15 @@
                 <div class="product-item">
                   <a href="job-details.html"><img src="{{asset('assets/images/product-1-370x270.jpg')}}" alt=""></a>
                   <div class="down-content">
-                    <a href="job-details.html"><h4>{{$job->tieude}}</h4></a>
+                    <a href="job-details.html"><h4>{{$job->title}}</h4></a>
 
-                    <h6>{{number_format($job->luong)}} &#8363;</h6>
+                    <h6>{{number_format($job->salary)}} &#8363;</h6>
 
                     <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
                     <p><a href="jobs.html" class="filled-button">Apply</a></p>
                     <small>
-                        <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> 
+                        <strong title="Type"><i class="fa fa-file"></i> Contract</strong> 
                         <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
                     </small>
                   </div>
