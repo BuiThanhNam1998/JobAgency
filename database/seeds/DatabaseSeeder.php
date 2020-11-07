@@ -11,19 +11,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        $this->call(VaitrosTableSeeder::class);
-        $this->call(UsersTableSeeder::class);
-        $this->call(Trangthai_tintuyendungsTableSeeder::class);
-        $this->call(NganhsTableSeeder::class);
-        $this->call(TintuyendungsTableSeeder::class);
-        $this->call(Trangthai_hososTableSeeder::class);
-        $this->call(ThanhphosTableSeeder::class);
-        $this->call(HososTableSeeder::class);
-        $this->call(Trangthai_lichhensTableSeeder::class);
-        $this->call(LichhensTableSeeder::class);
-        $this->call(TrinhdoTableSeeder::class);
-        $this->call(DanhgiasTableSeeder::class);
-        $this->call(SlidesTableSeeder::class);
+        $this->call(RoleTableSeeder::class);
+        $this->call(UserTableSeeder::class);
+        $this->call(JobStatusTableSeeder::class);
+        $this->call(CareerTableSeeder::class);
+        $this->call(JobTableSeeder::class);
+        $this->call(ProfileStatusTableSeeder::class);
+        $this->call(CityTableSeeder::class);
+        $this->call(ProfileTableSeeder::class);
+        $this->call(ScheduleStatusTableSeeder::class);
+        $this->call(ScheduleTableSeeder::class);
+        $this->call(GradeTableSeeder::class);
+        $this->call(ReviewTableSeeder::class);
+        $this->call(SlideTableSeeder::class);
      }
 }
