@@ -16,6 +16,36 @@
     </div>
   </div>
 
+    <div class="job-filter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-content">
+                        <form action="" method="GET" class="job-filter-form">
+                            <select name="career_id" class="filter-select" style="width: 172px;">
+                                <option value="">Tất cả ngành nghề</option>
+                                @foreach($careers as $career)
+                                    <option value="{{$career->id}}" {{$params['career_id'] == $career->id ? 'selected' : ''}}>
+                                        {{$career->name}}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <select name="type_id" class="filter-select" id="">
+                                <option value="">Tất cả hình thức</option>
+                                @foreach($jobTypes as $jobType)
+                                    <option value="{{$jobType->id}}" {{$params['type_id'] == $jobType->id ? 'selected' : ''}}>
+                                        {{$jobType->name}}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <button type="submit" class="filled-button">Tìm</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
   <div class="products">
     <div class="container">
       <div class="row">
@@ -166,119 +196,35 @@
 
         <div class="col-md-9">
           <div class="row">
-            <div class="col-md-6">
-              <div class="product-item">
-                <a href="job-details.html"><img src="{{asset('assets/images/product-1-370x270.jpg')}}" alt=""></a>
-                <div class="down-content">
-                  <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
+              @foreach($jobs as $job)
+                <div class="col-md-6">
+                  <div class="product-item">
+                    <a href="{{route('job.detail', ['id' => $job->id])}}" title="{{$job->title}}">
+                        <img src="{{asset($job->image)}}" alt="{{$job->title}}">
+                    </a>
+                    <div class="down-content">
+                      <a href="{{route('job.detail', ['id' => $job->id])}}" title="{{$job->title}}">
+                          <h4>{{$job->title}}</h4>
+                      </a>
 
-                  <h6>$60 000</h6>
+                      <h6>{{number_format($job->salary)}} &#8363;</h6>
 
-                  <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
+                      <h4>
+                          <small>
+                              <i class="fa fa-briefcase"></i> {{$job->career->name}} <br>
+                              <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong>
+                          </small>
+                      </h4>
 
-                  <small>
-                       <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                       <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                       <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
-                  </small>
+                      <small>
+                           <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Type"><i class="fa fa-file"></i> {{$job->type->name}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+                      </small>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="product-item">
-                <a href="job-details.html"><img src="{{asset('assets/images/product-2-370x270.jpg')}}" alt=""></a>
-                <div class="down-content">
-                  <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
-
-                  <h6>$60 000</h6>
-
-                  <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
-
-                  <small>
-                       <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                       <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                       <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
-                  </small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="product-item">
-                <a href="job-details.html"><img src="{{asset('assets/images/product-3-370x270.jpg')}}" alt=""></a>
-                <div class="down-content">
-                  <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
-
-                  <h6>$60 000</h6>
-
-                  <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
-
-                  <small>
-                       <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                       <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                       <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
-                  </small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="product-item">
-                <a href="job-details.html"><img src="{{asset('assets/images/product-4-370x270.jpg')}}" alt=""></a>
-                <div class="down-content">
-                  <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
-
-                  <h6>$60 000</h6>
-
-                  <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
-
-                  <small>
-                       <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                       <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                       <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
-                  </small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="product-item">
-                <a href="job-details.html"><img src="{{asset('assets/images/product-5-370x270.jpg')}}" alt=""></a>
-                <div class="down-content">
-                  <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
-
-                  <h6>$60 000</h6>
-
-                  <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
-
-                  <small>
-                       <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                       <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                       <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
-                  </small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="product-item">
-                <a href="job-details.html"><img src="{{asset('assets/images/product-6-370x270.jpg')}}" alt=""></a>
-                <div class="down-content">
-                  <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
-
-                  <h6>$60 000</h6>
-
-                  <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
-
-                  <small>
-                       <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                       <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                       <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
-                  </small>
-                </div>
-              </div>
-            </div>
+              @endforeach
 
             <div class="col-md-12">
               <ul class="pages">
