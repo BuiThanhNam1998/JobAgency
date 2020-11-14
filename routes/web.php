@@ -76,7 +76,7 @@ Route::group([
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('test-gui-ho-so', function () {
     $hososmoi = \App\hoso::query()->inRandomOrder()->first();
@@ -118,8 +118,8 @@ Route::get('/', 'User\PageController@getHome')->name('index');
 Route::group([
     'prefix' => 'job'
 ], function() {
-    Route::get('/list', 'User\JobController@getlist')->name('job.list');
-    Route::get('/detail/{id}', 'User\JobController@getDetail')->name('job.detail');
+    Route::get('/list', 'User\Job\ListController@main')->name('job.list');
+    Route::get('/detail/{id}', 'User\Job\DetailController@main')->name('job.detail');
 });
 
 

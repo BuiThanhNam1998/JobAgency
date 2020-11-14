@@ -13,6 +13,7 @@ class JobTableSeeder extends Seeder
     {
         $career = \App\Models\Career::query()->get()->pluck('id', 'name');
         $status_id = \App\Models\JobStatus::query()->get()->pluck('id','name');
+        $type_id = \App\Models\JobType::query()->get()->pluck('id', 'name');
         \App\Models\Job::query()->create([
             'description'=>'Một quản trị viên cơ sở dữ liệu chuyên nghiệp (DBA) sẽ giữ cho cơ sở dữ liệu luôn hoạt động trơn tru để hỗ trợ FAB đúc 24/7.
                      Mục tiêu là cung cấp một luồng thông tin liền mạch trong toàn công ty, xem xét cả cấu trúc dữ liệu phụ trợ và khả năng truy cập frontend cho người dùng cuối
@@ -26,8 +27,9 @@ class JobTableSeeder extends Seeder
             'career_id'=>$career['Công nghệ thông tin'],
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2019-08-18',
-            'image'=>'kysuhethongcntt.PNG',
-            'salary'=>'13000000'
+            'image'=>'images/job/kysuhethongcntt.PNG',
+            'salary'=>'13000000',
+'type_id' => $type_id['Hợp đồng']
         ]);
 
         \App\Models\Job::query()->create([
@@ -38,8 +40,9 @@ class JobTableSeeder extends Seeder
             'career_id'=>$career['Công nghệ thông tin'],
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2019-08-18',
-            'image'=>'kysuanninhmang.PNG',
-            'salary'=>'13000000'
+            'image'=>'images/job/kysuanninhmang.PNG',
+            'salary'=>'13000000',
+'type_id' => $type_id['Hợp đồng']
         ]);
 
         \App\Models\Job::query()->create([
@@ -55,8 +58,9 @@ class JobTableSeeder extends Seeder
             'career_id'=>$career['Nhân viên khối nhân sự chung'],
             'status_id'=>$status_id['Hết hạn'],
             'post_date'=>'2019-08-18',
-            'image'=>'tuyendung.PNG',
-            'salary'=>'10500000'
+            'image'=>'images/job/tuyendung.PNG',
+            'salary'=>'10500000',
+'type_id' => $type_id['Hợp đồng']
         ]);
 
         \App\Models\Job::query()->create([
@@ -68,8 +72,9 @@ class JobTableSeeder extends Seeder
             'career_id'=>$career['Nhân viên khối nhân sự chung'],
             'status_id'=>$status_id['Hết hạn'],
             'post_date'=>'2019-08-18',
-            'image'=>'tuyendung.PNG',
-            'salary'=>'10500000'
+            'image'=>'images/job/tuyendung.PNG',
+            'salary'=>'10500000',
+'type_id' => $type_id['Hợp đồng']
         ]);
 
         \App\Models\Job::query()->create([
@@ -84,8 +89,9 @@ class JobTableSeeder extends Seeder
             'career_id'=>$career['Giám đốc kinh doanh'],
             'status_id'=>$status_id['Hết hạn'],
             'post_date'=>'2019-01-18',
-            'image'=>'giamdoctiepthisanpham.PNG',
-            'salary'=>'20500000'
+            'image'=>'images/job/giamdoctiepthisanpham.PNG',
+            'salary'=>'20500000',
+'type_id' => $type_id['Hợp đồng']
         ]);
 
         \App\Models\Job::query()->create([
@@ -96,8 +102,9 @@ class JobTableSeeder extends Seeder
             'career_id'=>$career['Giám đốc nhân sự'],
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2018-09-18',
-            'image'=>'giamdoctiepthisanpham.PNG',
-            'salary'=>'20500000'
+            'image'=>'images/job/giamdoctiepthisanpham.PNG',
+            'salary'=>'20500000',
+'type_id' => $type_id['Hợp đồng']
         ]);
 
         \App\Models\Job::query()->create([
@@ -111,8 +118,9 @@ class JobTableSeeder extends Seeder
             'career_id'=>$career['Giám đốc sản phẩm'],
             'status_id'=>$status_id['Hết hạn'],
             'post_date'=>'2018-01-18',
-            'image'=>'giamdoctiepthisanpham.PNG',
-            'salary'=>'20500000'
+            'image'=>'images/job/giamdoctiepthisanpham.PNG',
+            'salary'=>'20500000',
+'type_id' => $type_id['Hợp đồng']
         ]);
 
         \App\Models\Job::query()->create([
@@ -126,8 +134,9 @@ class JobTableSeeder extends Seeder
             'career_id'=>$career['Giám đốc sản phẩm'],
             'status_id'=>$status_id['Hết hạn'],
             'post_date'=>'2018-03-18',
-            'image'=>'giamdoctiepthisanpham.PNG',
-            'salary'=>'20500000'
+            'image'=>'images/job/giamdoctiepthisanpham.PNG',
+            'salary'=>'20500000',
+'type_id' => $type_id['Hợp đồng']
         ]);
 
         \App\Models\Job::query()->create([
@@ -143,8 +152,9 @@ class JobTableSeeder extends Seeder
             'career_id'=>$career['Giám đốc sản xuất'],
             'status_id'=>$status_id['Hết hạn'],
             'post_date'=>'2018-01-18',
-            'image'=>'giamdoctiepthisanpham.PNG',
-            'salary'=>'20000000'
+            'image'=>'images/job/giamdoctiepthisanpham.PNG',
+            'salary'=>'20000000',
+'type_id' => $type_id['Hợp đồng']
         ]);
 
         \App\Models\Job::query()->create([
@@ -158,8 +168,9 @@ class JobTableSeeder extends Seeder
             'career_id'=>$career['Giám đốc sản xuất'],
             'status_id'=>$status_id['Hết hạn'],
             'post_date'=>'2019-08-18',
-            'image'=>'giamdoctiepthisanpham.PNG',
-            'salary'=>'21000000'
+            'image'=>'images/job/giamdoctiepthisanpham.PNG',
+            'salary'=>'21000000',
+'type_id' => $type_id['Hợp đồng']
         ]);
 
         \App\Models\Job::query()->create([
@@ -172,7 +183,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2020-01-18',
             'salary'=>'12000000',
-            'image'=>'phantichyeeucauchinh.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/phantichyeeucauchinh.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -187,8 +199,9 @@ class JobTableSeeder extends Seeder
             'career_id'=>$career['Kinh doanh, sản xuất'],
             'status_id'=>$status_id['Hết hạn'],
             'post_date'=>'2020-01-18',
-            'image'=>'chuyengiathue.PNG',
-            'salary'=>'22000000'
+            'image'=>'images/job/chuyengiathue.PNG',
+            'salary'=>'22000000',
+'type_id' => $type_id['Hợp đồng']
         ]);
 
         \App\Models\Job::query()->create([
@@ -205,7 +218,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2020-02-18',
             'salary'=>'12000000',
-            'image'=>'kysuhopdong-tichhopthietke.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/kysuhopdong-tichhopthietke.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -219,7 +233,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2020-02-18',
             'salary'=>'12500000',
-            'image'=>'kysuhopdong-tichhopthietke.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/kysuhopdong-tichhopthietke.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -231,7 +246,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2020-02-18',
             'salary'=>'8000000',
-            'image'=>'nhanvienbanhang.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/nhanvienbanhang.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -247,7 +263,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2020-02-18',
             'salary'=>'8500000',
-            'image'=>'tiepthisanphamphanmem.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/tiepthisanphamphanmem.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -265,7 +282,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2020-02-18',
             'salary'=>'12600000',
-            'image'=>'quanlychuongtrinhcaocap(mang).PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/quanlychuongtrinhcaocap(mang).PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -287,7 +305,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2020-02-26',
             'salary'=>'11800000',
-            'image'=>'dieuhanhdammay.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/dieuhanhdammay.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -305,7 +324,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Hết hạn'],
             'post_date'=>'2019-08-18',
             'salary'=>'21600000',
-            'image'=>'chuyenviendathang.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/chuyenviendathang.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -324,7 +344,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2019-08-18',
             'salary'=>'12000000',
-            'image'=>'baotrivanhanhcoso.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/baotrivanhanhcoso.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -340,7 +361,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2019-08-18',
             'salary'=>'12500000',
-            'image'=>'thietkesanpham.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/thietkesanpham.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -354,7 +376,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2019-08-18',
             'salary'=>'7000000',
-            'image'=>'hotrotiepthisanpham.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/hotrotiepthisanpham.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -367,7 +390,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Hết hạn'],
             'post_date'=>'2019-08-18',
             'salary'=>'8000000',
-            'image'=>'sanxuathaucan.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/sanxuathaucan.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -381,7 +405,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2019-08-18',
             'salary'=>'11500000',
-            'image'=>'tuyenkysu.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/tuyenkysu.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -394,7 +419,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2018-08-18',
             'salary'=>'16500000',
-            'image'=>'quanlybanhang.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/quanlybanhang.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -415,7 +441,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2019-08-18',
             'salary'=>'16500000',
-            'image'=>'quanlykehoachchienluoc.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/quanlykehoachchienluoc.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -437,7 +464,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2020-01-10',
             'salary'=>'15000000',
-            'image'=>'quanlutochuc,hoctap.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/quanlutochuc,hoctap.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -452,7 +480,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2020-01-10',
             'salary'=>'11000000',
-            'image'=>'kehoachnhansu.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/kehoachnhansu.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -465,7 +494,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Hết hạn'],
             'post_date'=>'2020-01-10',
             'salary'=>'11000000',
-            'image'=>'quanlysanpham.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/quanlysanpham.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -483,7 +513,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2020-01-10',
             'salary'=>'10000000',
-            'image'=>'quanlykehoachsanpham.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/quanlykehoachsanpham.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -501,7 +532,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Hết hạn'],
             'post_date'=>'2020-01-10',
             'salary'=>'22000000',
-            'image'=>'chuyengia,daotaokythuat.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/chuyengia,daotaokythuat.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -520,7 +552,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Hết hạn'],
             'post_date'=>'2018-01-10',
             'salary'=>'19000000',
-            'image'=>'chuyenviendathang.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/chuyenviendathang.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -538,7 +571,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2018-01-10',
             'salary'=>'16500000',
-            'image'=>'quanlyphuongtientruyenthongxahoi.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/quanlyphuongtientruyenthongxahoi.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -554,7 +588,8 @@ class JobTableSeeder extends Seeder
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2018-01-10',
             'salary'=>'15000000',
-            'image'=>'truyeenthongchienluoc,quanhecongchung.PNG'
+'type_id' => $type_id['Hợp đồng'],
+            'image'=>'images/job/truyeenthongchienluoc,quanhecongchung.PNG'
         ]);
 
         \App\Models\Job::query()->create([
@@ -567,8 +602,9 @@ class JobTableSeeder extends Seeder
             'career_id'=>$career['Tư vấn, thị trường'],
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2020-01-10',
-            'image'=>'nhaphantichnghiencuu.PNG',
-            'salary'=>'18000000'
+            'image'=>'images/job/nhaphantichnghiencuu.PNG',
+            'salary'=>'18000000',
+'type_id' => $type_id['Hợp đồng']
         ]);
 
         \App\Models\Job::query()->create([
@@ -580,8 +616,9 @@ class JobTableSeeder extends Seeder
             'career_id'=>$career['Tư vấn, thị trường'],
             'status_id'=>$status_id['Đang tuyển'],
             'post_date'=>'2020-01-10',
-            'image'=>'chuyenvienphantichkinhdoanhtructuyen.PNG',
-            'salary'=>'16500000'
+            'image'=>'images/job/chuyenvienphantichkinhdoanhtructuyen.PNG',
+            'salary'=>'16500000',
+'type_id' => $type_id['Hợp đồng']
         ]);
     }
 }
