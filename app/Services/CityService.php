@@ -2,14 +2,18 @@
 
 namespace App\Services;
 
-use App\Models\Job;
-use App\Models\JobStatus;
+use App\Models\City;
 
-class JobService {
+class CityService {
     protected $fieldsForList = [
         '*'
     ];
 
+    public function getAll()
+    {
+        return City::select($this->fieldsForList)
+            ->get();
+    }
     public function getList($params)
     {
         $perPage = isset($params['per_page']) ? trim($params['per_page']) : config('setup.job.number_display_home');
@@ -36,11 +40,4 @@ class JobService {
             ->paginate($perPage, ['*'], 'page', $currentPage);
     }
 
-    public function getDetail($params)
-    {
-        return Job::select(['*'])
-            ->with(['career', 'type'])
-            ->where('id', $params['id'])
-            ->first();
-    }
 }

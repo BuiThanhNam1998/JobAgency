@@ -38,6 +38,14 @@
                                     </option>
                                 @endforeach
                             </select>
+                            <select name="city_id" class="filter-select" style="width: 172px;">
+                              <option value="">Tất cả tỉnh thành</option>
+                              @foreach($cities as $city)
+                                  <option value="{{$city->id}}" {{$params['city_id'] == $city->id ? 'selected' : ''}}>
+                                      {{$city->name}}
+                                  </option>
+                              @endforeach
+                          </select>
                             <button type="submit" class="filled-button">Tìm</button>
                         </form>
                     </div>
