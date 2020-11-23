@@ -74,7 +74,7 @@ Route::group([
 });
 
 
-Auth::routes(['verify' => true]);
+//Auth::routes(['verify' => true]);
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
@@ -113,8 +113,8 @@ Route::get('/callback/{provider}', function (\Illuminate\Http\Request $request, 
 
 
 
-Auth::routes();
 Route::get('/', 'User\PageController@getHome')->name('index');
+
 Route::group([
     'prefix' => 'job'
 ], function() {
@@ -122,5 +122,17 @@ Route::group([
     Route::get('/detail/{id}', 'User\Job\DetailController@main')->name('job.detail');
 });
 
+Route::group([
+    'prefix' => 'profile',
+    'middleware' => ['auth']
+], function() {
+    Route::group([
+        'prefix' => 'job-profile'
+    ], function() {
+        Route::get('/list', 'User\Profile\ListController@main')->name('user.profile.list');
+    });
+});
 
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
