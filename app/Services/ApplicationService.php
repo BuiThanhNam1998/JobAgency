@@ -3,9 +3,10 @@
 namespace App\Services;
 
 use App\Models\Profile;
+use App\Models\Application;
 use Illuminate\Support\Facades\Auth;
 
-class ProfileService {
+class ApplicationService {
     protected $fieldsForList = [
         '*'
     ];
@@ -21,7 +22,13 @@ class ProfileService {
     public function getDetail($params)
     {
         return Profile::select(['*'])
+            ->with(['career', 'type'])
             ->where('id', $params['id'])
             ->first();
+    }
+
+    public function store($params)
+    {
+        return Application::create($params);
     }
 }

@@ -1032,6 +1032,22 @@ footer .inner-content p a {
     padding: 10px;
 }
 
+.modal-title-apply {
+    font-size: 18px;
+}
+
+.modal-title-apply b {
+    font-weight: 700;
+}
+
+.apply-form {
+    margin-top: 20px;
+}
+
+.modal-btn-apply {
+    margin-top: 20px;
+}
+
 .filter-select {
     border: 0;
     margin-right: 10px;

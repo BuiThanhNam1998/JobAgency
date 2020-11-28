@@ -18,6 +18,36 @@
                     <li class="nav-item"><a class="nav-link" href="about-us.html">About us</a></li>
 
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"
+                               data-toggle="dropdown" href="#"
+                               role="button" aria-haspopup="true"
+                               aria-expanded="false">{{ Auth::user()->name }}
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="{{ route('user.profile.list') }}">Job profiles</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
                 </ul>
             </div>
         </div>

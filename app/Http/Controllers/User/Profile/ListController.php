@@ -5,7 +5,6 @@ namespace App\Http\Controllers\User\Profile;
 use App\Services\ProfileService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 
 class ListController extends Controller
 {

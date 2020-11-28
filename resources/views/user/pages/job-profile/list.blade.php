@@ -21,26 +21,30 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="row">
-                        @foreach($profiles as $profile)
-                            <div class="col-md-6">
+                    @foreach($profiles as $profile)
+                        <div class="row">
+                            <div class="col-md-4">
                                 <div class="service-item">
                                     <a href="blog-details.html" class="services-item-image">
                                         <img src="{{asset('assets/images/blog-1-370x270.jpg')}}" class="img-fluid" alt="">
                                     </a>
-
-                                    <div class="down-content">
-                                        <h4><a href="blog-details.html">{{$profile->name}}</a></h4>
-
-                                        <p style="margin: 0;">
-                                            John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114
-                                        </p>
-                                    </div>
                                 </div>
                             </div>
-                        @endforeach
+                            <div class="col-md-8">
+                                <div class="down-content">
+                                    <h4>
+                                        <a href="{{ route('user.profile.detail', ['id' => $profile->id]) }}">
+                                            {{ $profile->name }}
+                                        </a>
+                                    </h4>
 
-                    </div>
+                                    <p style="margin: 0;">
+                                        {{ $profile->created_at }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
 
                 <div class="col-md-4">
