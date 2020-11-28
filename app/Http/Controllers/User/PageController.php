@@ -7,14 +7,17 @@ use App\Http\Controllers\Controller;
 use App\Models\Job;
 use App\Models\JobStatus;
 use App\Services\JobService;
+use App\Services\ProfileService;
 
 class PageController extends Controller
 {
     protected $jobService;
+    protected $profileService;
 
-    public function __construct(JobService $jobService)
+    public function __construct(JobService $jobService, ProfileService $profileService)
     {
         $this->jobService = $jobService;
+        $this->profileService = $profileService;
     }
 
     public function getHome()
@@ -31,7 +34,9 @@ class PageController extends Controller
 
         $newJobs = $this->jobService->getList($paramNewJobs);
         $hotJobs = $this->jobService->getList($paramHotJobs);
-
-        return view('user.pages.home', compact('newJobs', 'hotJobs'));
+        $profiles = $this->profileService->getList();
+        return view('user.pages.home',
+            compact('newJobs', 'hotJobs', 'profiles')
+        );
     }
 }

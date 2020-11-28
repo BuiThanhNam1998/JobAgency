@@ -123,15 +123,48 @@ Route::group([
 });
 
 Route::group([
-    'prefix' => 'profile',
     'middleware' => ['auth']
 ], function() {
+
     Route::group([
-        'prefix' => 'job-profile'
+        'prefix' => 'profile',
     ], function() {
-        Route::get('/list', 'User\Profile\ListController@main')->name('user.profile.list');
+        Route::group([
+            'prefix' => 'job-profile'
+        ], function() {
+            Route::get('/list', 'User\Profile\ListController@main')->name('user.profile.list');
+            Route::get('/detail/{id}', 'User\Profile\DetailController@main')->name('user.profile.detail');
+        });
+    });
+
+    Route::group([
+        'prefix' => 'application',
+    ], function() {
+        Route::post('/store', 'User\Application\CreateController@main')->name('user.application.store');
     });
 });
+
+Route::group([
+    'middleware' => ['auth']
+], function() {
+
+    Route::group([
+        'prefix' => 'admin',
+    ], function() {
+        Route::group([
+            'prefix' => 'career'
+        ], function() {
+            Route::get('/list', 'Admin\Career\ListController@main')->name('admin.career.list');
+        });
+    });
+
+    Route::group([
+        'prefix' => 'application',
+    ], function() {
+        Route::post('/store', 'User\Application\CreateController@main')->name('user.application.store');
+    });
+});
+
 
 Auth::routes();
 

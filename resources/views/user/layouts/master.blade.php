@@ -31,14 +31,14 @@
             <div></div>
             <div></div>
         </div>
-    </div>  
+    </div>
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
     @include('user.layouts.header')
 
     @yield('content')
-    
+
     @include('user.layouts.footer')
 
 
@@ -50,5 +50,7 @@
     <!-- Additional Scripts -->
     <script src="{{asset('assets/js/custom.js')}}"></script>
     <script src="{{asset('assets/js/owl.js')}}"></script>
+
+    @yield('script')
   </body>
 </html>
