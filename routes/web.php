@@ -157,12 +157,6 @@ Route::group([
             Route::get('/list', 'Admin\Career\ListController@main')->name('admin.career.list');
         });
     });
-
-    Route::group([
-        'prefix' => 'application',
-    ], function() {
-        Route::post('/store', 'User\Application\CreateController@main')->name('user.application.store');
-    });
 });
 
 
