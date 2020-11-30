@@ -1052,6 +1052,23 @@ footer .inner-content p a {
     border: 0;
     margin-right: 10px;
 }
+.label-profile-form
+{
+	color: #D31027;
+}
+.img-profile
+{
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+.avatar-and-title
+{
+	margin-top: 15px;
+	width: 100%;
+	text-align: center;
+}
+
 
 /* Responsive Style */
 @media (max-width: 768px) {
@@ -1166,3 +1183,4 @@ footer .inner-content p a {
 		margin-bottom: 20px;
 	}
 }
+/*  */
