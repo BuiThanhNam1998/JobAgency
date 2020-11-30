@@ -43,6 +43,7 @@ class ListController extends Controller
         $careers = $this->careerService->getAll();
         $jobTypes = $this->jobTypeService->getAll();
         $cities = $this->cityService->getAll();
+        
         return view('user.pages.job.list',
             compact('careers', 'jobs', 'jobTypes', 'cities', 'params')
         );
@@ -55,7 +56,8 @@ class ListController extends Controller
             'type_id' => $request->type_id,
             'sort' => $request->sort,
             'order' => $request->order,
-            'city_id' => $request->city_id
+            'city_id' => $request->city_id,
+            'search' => $request->search
         ];
     }
 
