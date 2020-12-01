@@ -46,6 +46,7 @@
                                   </option>
                               @endforeach
                           </select>
+                              <input type="text" name="search" placeholder="Search here" value="{{ $params['search'] }}">
                             <button type="submit" class="filled-button">Tìm</button>
                         </form>
                     </div>
