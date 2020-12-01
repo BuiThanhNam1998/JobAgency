@@ -113,8 +113,8 @@
                 <ul class="nav nav-second-level">
                     @if(auth()->user()->role->name == 'Quản trị viên')
                     <li>
-                        <a href="{{route('quantri.nganhs.index')}}">Danh sách các ngành</a>
-                        <a href="{{route('quantri.nganhs.create')}}">Thêm ngành mới</a>
+                        <a href="{{route('admin.career.list')}}">Danh sách các ngành</a>
+                        <a href="{{route('admin.career.create')}}">Thêm ngành mới</a>
                     </li>
                     @endif
                 </ul>
