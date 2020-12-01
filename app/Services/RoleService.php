@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
-use App\Models\Career;
+use App\Models\Role;
 
-class CareerService {
+class RoleService {
     protected $fieldsForList = [
         'id',
         'name'
@@ -12,13 +12,13 @@ class CareerService {
 
     public function getAll()
     {
-        return Career::select($this->fieldsForList)
+        return Role::select($this->fieldsForList)
             ->get();
     }
 
     public function getDetail($params)
     {
-        return Career::select(['*'])
+        return Role::select(['*'])
             ->where('id', $params['id'])
             ->first();
     }
@@ -34,7 +34,7 @@ class CareerService {
 
     public function destroy($params)
     {
-        return Career::where('id', $params['id'])
+        return Role::where('id', $params['id'])
             ->delete();
     }
 }

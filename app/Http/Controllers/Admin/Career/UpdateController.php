@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 
 
 
-class ListController extends Controller
+class UpdateController extends Controller
 {
     protected $careerService;
 
@@ -29,23 +29,24 @@ class ListController extends Controller
             dd('die');
         }
 
-        $careers = $this->careerService->getAll();
-        return view('admin.career.index',
-            compact('careers')
-        );
+        $this->careerService->store($params);
+        return \Redirect::back();
+
     }
 
     public function getParams(Request $request)
     {
         return [
-
+            'id' => $request->id,
+            'name' => $request->name
         ];
     }
 
     private function rules()
     {
         return [
-
+            'id' => 'exists:careers,id',
+            'name' => 'required|string'
         ];
     }
 

@@ -12,6 +12,7 @@
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                 <tr align="center">
+                    <th>Id</th>
                     <th>Tên ngành nghề hoặc lĩnh vực</th>
                     <th>Sửa</th>
                     <th>Xóa</th>
@@ -20,12 +21,15 @@
                 <tbody>
                 @foreach($careers as $career)
                     <tr class="odd gradeX" align="center">
+                        <td>{{$career->id}}</td>
                         <td>{{$career->name}}</td>
-                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('quantri.nganhs.edit',$career->id)}}">Sửa</a></td>
                         <td class="center">
-                            <form action="{{route('quantri.nganhs.destroy',$career->id)}}" method="POST">
+                            <i class="fa fa-pencil fa-fw"></i>
+                            <a href="{{route('admin.career.detail', $career->id)}}">Sửa</a>
+                        </td>
+                        <td class="center">
+                            <form action="{{route('admin.career.destroy', $career->id)}}" method="POST">
                                 @csrf
-                                @method('delete')
                                 <button type="submit">
                                     <i class="fa fa-trash-o  fa-fw"></i>Xóa
                                 </button>

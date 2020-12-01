@@ -155,13 +155,20 @@ Route::group([
             'prefix' => 'career'
         ], function() {
             Route::get('/list', 'Admin\Career\ListController@main')->name('admin.career.list');
+            Route::get('/detail/{id}', 'Admin\Career\DetailController@main')->name('admin.career.detail');
+            Route::get('/create/', 'Admin\Career\CreateController@main')->name('admin.career.create');
+            Route::post('/insert/', 'Admin\Career\InsertController@main')->name('admin.career.insert');
+            Route::post('/update/{id}', 'Admin\Career\UpdateController@main')->name('admin.career.update');
+            Route::post('/destroy/{id}', 'Admin\Career\DestroyController@main')->name('admin.career.destroy');
         });
-    });
 
-    Route::group([
-        'prefix' => 'application',
-    ], function() {
-        Route::post('/store', 'User\Application\CreateController@main')->name('user.application.store');
+        Route::group([
+            'prefix' => 'user'
+        ], function() {
+            Route::get('/list', 'Admin\User\ListController@main')->name('admin.user.list');
+            Route::get('/detail/{id}', 'Admin\User\DetailController@main')->name('admin.user.detail');
+            Route::post('/update/{id}', 'Admin\User\UpdateController@main')->name('admin.user.update');
+        });
     });
 });
 
