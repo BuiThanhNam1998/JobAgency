@@ -4,6 +4,8 @@ namespace App\Services;
 
 use App\Models\Job;
 use App\Models\JobStatus;
+use http\Env\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobService {
     protected $fieldsForList = [
@@ -21,7 +23,7 @@ class JobService {
         //dd($search);
         $sort = isset($params['sort']) ? trim($params['sort']) : '';
         $order = isset($params['order']) ? trim($params['order']) : '';
-       
+
         return Job::select($this->fieldsForList)->with(['career', 'type'])
             ->where('status_id', JobStatus::AVAILABLE)
             ->when(!empty($careerId) && $careerId > 0, function ($query) use ($careerId) {
@@ -48,5 +50,43 @@ class JobService {
             ->with(['career', 'type'])
             ->where('id', $params['id'])
             ->first();
+    }
+
+    public function getAllByUser() {
+        return Job::select(['*'])
+            ->with(['career', 'type'])
+            ->where('user_id', Auth::id())
+            ->get();
+    }
+
+    public function store($params)
+    {
+        $id = isset($params['id']) ? $params['id'] : null;
+        $job = (isset($id)) ? Job::find($id) : new Job();
+        $job->title = $params['title'];
+        $job->description = $params['description'];
+        $job->salary = $params['salary'];
+        $job->career_id = $params['career_id'];
+        $job->status_id = $params['status_id'];
+        $job->type_id = $params['type_id'];
+        $job->city_id = $params['city_id'];
+        $job->post_date = $params['post_date'];
+        $job->user_id = Auth::id();
+        if ($params['image']) {
+            $fileExtension = $params['image']->getClientOriginalExtension();
+            $fileName = time() . "_" . rand(0,99) . "." . $fileExtension;
+            $uploadPath = public_path('images/job');
+            $params['image']->move($uploadPath, $fileName);
+            $image = 'images/job/' . $fileName;
+            $job->image = $image;
+        }
+        $job->save();
+        return $job;
+    }
+
+    public function destroy($params)
+    {
+        return Job::where('id', $params['id'])
+            ->delete();
     }
 }

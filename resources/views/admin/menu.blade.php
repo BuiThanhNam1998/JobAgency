@@ -41,8 +41,8 @@
                 <ul class="nav nav-second-level">
                     @if(auth()->user()->role->name == 'Quản trị viên')
                     <li>
-                        <a href="{{route('quantri.tintuyendungs.index')}}">Danh sách tin tuyển dụng</a>
-                        <a href="{{route('quantri.tintuyendungs.create')}}">Thêm tin tuyển dụng mới</a>
+                        <a href="{{route('employer.job.list')}}">Danh sách tin tuyển dụng</a>
+                        <a href="{{route('employer.job.create')}}">Thêm tin tuyển dụng mới</a>
                     </li>
                     @endif
                 </ul>

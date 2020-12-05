@@ -2,16 +2,16 @@
 
 namespace App\Services;
 
-use App\Models\City;
+use App\Models\JobStatus;
 
-class CityService {
+class JobStatusService {
     protected $fieldsForList = [
         '*'
     ];
 
     public function getAll()
     {
-        return City::select($this->fieldsForList)
+        return JobStatus::select($this->fieldsForList)
             ->get();
     }
 }

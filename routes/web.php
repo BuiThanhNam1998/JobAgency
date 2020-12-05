@@ -130,10 +130,11 @@ Route::group([
         'prefix' => 'profile',
     ], function() {
         Route::group([
-            'prefix' => 'job-profile'
+            'prefix' => 'job-profile',
+            'namespace' => 'User\Profile'
         ], function() {
-            Route::get('/list', 'User\Profile\ListController@main')->name('user.profile.list');
-            Route::get('/detail/{id}', 'User\Profile\DetailController@main')->name('user.profile.detail');
+            Route::get('/list', 'ListController@main')->name('user.profile.list');
+            Route::get('/detail/{id}', 'DetailController@main')->name('user.profile.detail');
         });
     });
 
@@ -152,25 +153,49 @@ Route::group([
         'prefix' => 'admin',
     ], function() {
         Route::group([
-            'prefix' => 'career'
+            'prefix' => 'career',
+            'namespace' => 'Admin\Career'
         ], function() {
-            Route::get('/list', 'Admin\Career\ListController@main')->name('admin.career.list');
-            Route::get('/detail/{id}', 'Admin\Career\DetailController@main')->name('admin.career.detail');
-            Route::get('/create/', 'Admin\Career\CreateController@main')->name('admin.career.create');
-            Route::post('/insert/', 'Admin\Career\InsertController@main')->name('admin.career.insert');
-            Route::post('/update/{id}', 'Admin\Career\UpdateController@main')->name('admin.career.update');
-            Route::post('/destroy/{id}', 'Admin\Career\DestroyController@main')->name('admin.career.destroy');
+            Route::get('/list', 'ListController@main')->name('admin.career.list');
+            Route::get('/detail/{id}', 'DetailController@main')->name('admin.career.detail');
+            Route::get('/create/', 'CreateController@main')->name('admin.career.create');
+            Route::post('/insert/', 'InsertController@main')->name('admin.career.insert');
+            Route::post('/update/{id}', 'UpdateController@main')->name('admin.career.update');
+            Route::post('/destroy/{id}', 'DestroyController@main')->name('admin.career.destroy');
         });
 
         Route::group([
-            'prefix' => 'user'
+            'prefix' => 'user',
+            'namespace' => 'Admin\User'
         ], function() {
-            Route::get('/list', 'Admin\User\ListController@main')->name('admin.user.list');
-            Route::get('/detail/{id}', 'Admin\User\DetailController@main')->name('admin.user.detail');
-            Route::post('/update/{id}', 'Admin\User\UpdateController@main')->name('admin.user.update');
+            Route::get('/list', 'ListController@main')->name('admin.user.list');
+            Route::get('/detail/{id}', 'DetailController@main')->name('admin.user.detail');
+            Route::post('/update/{id}', 'UpdateController@main')->name('admin.user.update');
         });
     });
 });
+
+Route::group([
+    'middleware' => ['auth']
+], function() {
+
+    Route::group([
+        'prefix' => 'employer',
+    ], function() {
+        Route::group([
+            'prefix' => 'job',
+            'namespace' => 'Employer\Job'
+        ], function() {
+            Route::get('/list', 'ListController@main')->name('employer.job.list');
+            Route::get('/detail/{id}', 'DetailController@main')->name('employer.job.detail');
+            Route::get('/create/', 'CreateController@main')->name('employer.job.create');
+            Route::post('/insert/', 'InsertController@main')->name('employer.job.insert');
+            Route::post('/update/{id}', 'UpdateController@main')->name('employer.job.update');
+            Route::post('/destroy/{id}', 'DestroyController@main')->name('employer.job.destroy');
+        });
+    });
+});
+
 
 
 Auth::routes();
