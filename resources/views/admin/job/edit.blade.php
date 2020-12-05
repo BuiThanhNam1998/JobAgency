@@ -1,4 +1,4 @@
-@extends('quantri.layout')
+@extends('admin.layout')
 @section('head')
     <title>Sửa tin tuyển dụng</title>
 @endsection
@@ -20,48 +20,63 @@
             <!-- /.col-lg-12 -->
             <h4 style="color: #ff8080">* Là các thông tin bắt buộc bạn phải điền</h4>
             <div class="col-lg-7" style="padding-bottom:120px">
-                <form action="{{route('quantri.tintuyendungs.update',$tintuyendung->id)}}" method="POST" enctype="multipart/form-data">
-                    @method('patch')
+                <form action="{{route('employer.job.update',$job->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label>* Tiêu đề tin tuyển dụng</label>
-                        <input class="form-control" name="tieude" placeholder="Nhập tiêu đề tin tuyển dụng " value="{{$tintuyendung->tieude}}"/>
+                        <input class="form-control" name="title" placeholder="Nhập tiêu đề tin tuyển dụng " value="{{$job->title}}"/>
                     </div>
                     <div class="form-group">
                         <label>* Mô tả tin tuyển dụng</label>
-                        <textarea name="mota" id="mota" rows="10" cols="80">{{$tintuyendung->mota}}</textarea>
+                        <textarea name="description" id="description" rows="10" cols="80">{{$job->description}}</textarea>
                         <script>
-                            CKEDITOR.replace( 'mota' );
+                            CKEDITOR.replace( 'description' );
                         </script>
                     </div>
                     <div class="form-group">
                         <label>Mức lương tối thiểu</label>
-                        <input class="form-control" name="luong" placeholder="Nhập mức lương tối thiểu " value="{{$tintuyendung->luong}}"/>
+                        <input class="form-control" name="salary" placeholder="Nhập mức lương tối thiểu " value="{{$job->salary}}"/>
                     </div>
                     <div class="form-group">
                         <label>Ngành nghề/ lĩnh vực</label>
-                        <select class="form-control" id="sel1" name="nganh_id">
-                            @foreach($nganhs as $nganh)
-                                <option value="{{$nganh->id}}" @if($nganh->id == $tintuyendung->nganh_id)selected @endif>{{$nganh->ten}}</option>
+                        <select class="form-control" id="sel1" name="career_id">
+                            @foreach($careers as $career)
+                                <option value="{{$career->id}}" @if($career->id == $job->career_id)selected @endif>{{$career->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Hình thức tuyển dụng</label>
+                        <select class="form-control" id="sel1" name="type_id">
+                            @foreach($jobTypes as $jobType)
+                                <option value="{{$jobType->id}}" @if($jobType->id == $job->type_id) selected @endif>{{$jobType->name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Trạng thái tin tuyển dụng</label>
-                        <select class="form-control" id="sel1" name="trangthai_id">
-                            @foreach($trangthai_tintuyendungs as $trangthai_tintuyendung)
-                                <option value="{{$trangthai_tintuyendung->id}}" @if($trangthai_tintuyendung->id == $tintuyendung->trangthai_id)selected @endif>{{$trangthai_tintuyendung->ten}}</option>
+                        <select class="form-control" id="sel1" name="status_id">
+                            @foreach($jobStatuses as $jobStatus)
+                                <option value="{{$jobStatus->id}}" @if($jobStatus->id == $job->status_id) selected @endif>{{$jobStatus->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Địa điểm</label>
+                        <select class="form-control" id="sel1" name="city_id">
+                            @foreach($cities as $city)
+                                <option value="{{$city->id}}" @if($city->id == $job->city_id) selected @endif>{{$city->name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label>* Ngày đăng tin tuyển dụng</label>
-                        <input class="form-control" name="ngaydang" placeholder="Nhập ngày đăng tin tuyển dụng " value="{{$tintuyendung->ngaydang->format('Y-m-d')}}" type="date"/>
+                        <input class="form-control" name="post_date" placeholder="Nhập ngày đăng tin tuyển dụng " value="{{date_format(date_create($job->post_date), 'Y-m-d')}}" type="date"/>
                     </div>
                     <div class="form-group">
                         <label>Chọn ảnh</label>
-                        <input type="file" name="anh" id="anh"/>
-                        <td><img src="{{asset("image/career/{$tintuyendung->anh}")}}" id="preview" alt="" height="250px"></td>
+                        <input type="file" name="image" id="image" />
+                        <td><img src="{{asset($job->image)}}" id="preview" alt="" height="250px"></td>
                     </div>
                     <button type="submit" class="btn btn-default">Sửa tin tuyển dụng</button>
                     <button type="reset" class="btn btn-default">Reset</button>
@@ -79,7 +94,7 @@
                         }
                     }
 
-                    $("#anh").change(function() {
+                    $("#image").change(function() {
                         readURL(this);
                     });
                 </script>

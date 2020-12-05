@@ -55,7 +55,7 @@
                             <a href="{{route('admin.user.detail',$user->id)}}">Sửa</a>
                         </td>
                         <td class="center">
-                            <form action="{{route('admin.user.destroy',$user->id)}}" method="POST">
+                            <form action="#" method="POST">
                                 @csrf
                                 <button type="submit">
                                     <i class="fa fa-trash-o  fa-fw"></i>Xóa
