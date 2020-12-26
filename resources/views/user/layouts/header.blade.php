@@ -7,13 +7,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item {{ request()->routeIs('index') ? 'active' : '' }}">
                         <a class="nav-link" href="{{route('index')}}">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link" href="{{route('job.list')}}">Jobs</a></li>
+                    <li class="nav-item {{ request()->routeIs('job.list') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{route('job.list')}}">Jobs</a>
+                    </li>
 
                     <li class="nav-item"><a class="nav-link" href="about-us.html">About us</a></li>
 
@@ -28,7 +30,7 @@
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown {{ request()->routeIs('user.*') ? 'active' : '' }}">
                             <a class="nav-link dropdown-toggle"
                                data-toggle="dropdown" href="#"
                                role="button" aria-haspopup="true"
@@ -37,6 +39,7 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Profile</a>
                                 <a class="dropdown-item" href="{{ route('user.profile.list') }}">Job profiles</a>
+                                <a class="dropdown-item" href="{{ route('user.application.list') }}">Applications</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

@@ -135,13 +135,20 @@ Route::group([
         ], function() {
             Route::get('/list', 'ListController@main')->name('user.profile.list');
             Route::get('/detail/{id}', 'DetailController@main')->name('user.profile.detail');
+            Route::post('/insert/', 'InsertController@main')->name('user.profile.insert');
+            Route::post('/update/{id}', 'UpdateController@main')->name('user.profile.update');
+            Route::post('/destroy/{id}', 'DestroyController@main')->name('user.profile.destroy');
         });
-    });
 
-    Route::group([
-        'prefix' => 'application',
-    ], function() {
-        Route::post('/store', 'User\Application\CreateController@main')->name('user.application.store');
+        Route::group([
+            'prefix' => 'application',
+            'namespace' => 'User\Application'
+        ], function() {
+            Route::get('/list', 'ListController@main')->name('user.application.list');
+            Route::get('/detail', 'DetailController@main')->name('user.application.detail');
+            Route::post('/store', 'CreateController@main')->name('user.application.store');
+        });
+
     });
 });
 
@@ -192,6 +199,18 @@ Route::group([
             Route::post('/insert/', 'InsertController@main')->name('employer.job.insert');
             Route::post('/update/{id}', 'UpdateController@main')->name('employer.job.update');
             Route::post('/destroy/{id}', 'DestroyController@main')->name('employer.job.destroy');
+        });
+        Route::group([
+            'prefix' => 'application',
+            'namespace' => 'Employer\Application'
+        ], function() {
+            Route::get('/list', 'ListController@main')->name('employer.application.list');
+            Route::get('/detail/{id}', 'DetailController@main')->name('employer.application.detail');
+            Route::get('/create/', 'CreateController@main')->name('employer.application.create');
+            Route::post('/insert/', 'InsertController@main')->name('employer.application.insert');
+            Route::post('/update/{id}', 'UpdateController@main')->name('employer.application.update');
+            Route::post('/change-status', 'ChangeStatusController@main')->name('employer.application.change.status');
+            Route::post('/destroy/{id}', 'DestroyController@main')->name('employer.application.destroy');
         });
     });
 });

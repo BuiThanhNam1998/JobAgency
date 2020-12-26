@@ -1,21 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\User\Application;
+namespace App\Http\Controllers\Employer\Application;
 
 use App\Services\ApplicationService;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
-class CreateController extends Controller
+
+
+class ChangeStatusController extends Controller
 {
     protected $applicationService;
 
     public function __construct(
-        ApplicationService $applicationService
+      ApplicationService $applicationService
     )
     {
-        $this->applicationService = $applicationService;
+      $this->applicationService = $applicationService;
     }
 
     public function main(Request $request)
@@ -25,27 +28,31 @@ class CreateController extends Controller
         if ($validator->fails()) {
             dd('die');
         }
-        $result = $this->applicationService->store($params)->getData();
+
+        $result = $this->applicationService->changeStatus($params)->getData();
         if ($result->code == 200) {
-            return redirect()->back()->with('success', $result->message);
+            return redirect()->back()->with(['success', 'test'], [$result->message, 1]);
         }
         else {
             return redirect()->back()->with('errors', $result->message);
         }
+        return \Redirect::back();
+
     }
 
     public function getParams(Request $request)
     {
         return [
-            'job_id' => $request->job_id,
-            'profile_id' => $request->profile_id,
+            'status_id' => $request->status_id,
+            'application_id' => $request->application_id
         ];
     }
 
     private function rules()
     {
         return [
-
+            'status_id' => 'required',
+            'application_id' => 'required'
         ];
     }
 
