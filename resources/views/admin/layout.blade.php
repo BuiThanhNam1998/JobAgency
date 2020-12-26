@@ -25,11 +25,13 @@
     <!-- DataTables Responsive CSS -->
     <link href="{{asset('bower_components/datatables-responsive/css/dataTables.responsive.css')}}" rel="stylesheet">
     <script src="{{asset('https://kit.fontawesome.com/0ac0ec1e64.js')}}" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{asset('assets/css/jquery.toast.min.css')}}">
     <!-- jQuery -->
     <script src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="{{asset('assets/js/jquery.toast.min.js')}}"></script>
 </head>
 
 <body>

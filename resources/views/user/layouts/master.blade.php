@@ -10,12 +10,13 @@
     <link rel="icon" href="{{asset('assets/images/favicon.ico')}}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>PHPJabbers.com | Free Job Agency Website Template</title>
+    <title>Job Agency</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{asset('assets/css/jquery.toast.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/fontawesome.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/owl.css')}}">
@@ -49,6 +50,7 @@
 
     <!-- Additional Scripts -->
     <script src="{{asset('assets/js/custom.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.toast.min.js')}}"></script>
     <script src="{{asset('assets/js/owl.js')}}"></script>
 
     @yield('script')

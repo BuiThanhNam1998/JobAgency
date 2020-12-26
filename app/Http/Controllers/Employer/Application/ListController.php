@@ -1,21 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\User\Application;
+namespace App\Http\Controllers\Employer\Application;
 
 use App\Services\ApplicationService;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Models\ApplicationStatus;
 
-class CreateController extends Controller
+
+class ListController extends Controller
 {
     protected $applicationService;
 
     public function __construct(
-        ApplicationService $applicationService
+      ApplicationService $applicationService
     )
     {
-        $this->applicationService = $applicationService;
+      $this->applicationService = $applicationService;
     }
 
     public function main(Request $request)
@@ -25,20 +29,19 @@ class CreateController extends Controller
         if ($validator->fails()) {
             dd('die');
         }
-        $result = $this->applicationService->store($params)->getData();
-        if ($result->code == 200) {
-            return redirect()->back()->with('success', $result->message);
-        }
-        else {
-            return redirect()->back()->with('errors', $result->message);
-        }
+
+        $employee = Auth::user();
+        $applications = $employee->applications()->get();
+        $applicationStatuses = ApplicationStatus::all();
+        return view('admin.application.index',
+            compact('applications', 'applicationStatuses')
+        );
     }
 
     public function getParams(Request $request)
     {
         return [
-            'job_id' => $request->job_id,
-            'profile_id' => $request->profile_id,
+
         ];
     }
 
