@@ -30,14 +30,7 @@ class ChangeStatusController extends Controller
         }
 
         $result = $this->applicationService->changeStatus($params)->getData();
-        if ($result->code == 200) {
-            return redirect()->back()->with(['success', 'test'], [$result->message, 1]);
-        }
-        else {
-            return redirect()->back()->with('errors', $result->message);
-        }
-        return \Redirect::back();
-
+        return response()->json($result);
     }
 
     public function getParams(Request $request)

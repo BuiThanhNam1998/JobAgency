@@ -27,25 +27,41 @@ class ProfileService {
 
     public function store($params)
     {
-        $id = isset($params['id']) ? $params['id'] : null;
-        $profile = (isset($id)) ? Profile::find($id) : new Profile();
+        try {
+            $id = isset($params['id']) ? $params['id'] : null;
+            $profile = (isset($id)) ? Profile::find($id) : new Profile();
 
-        $profile->user_name = $params['user_name'];
-        $profile->date_of_birth = $params['date_of_birth'];
-        $profile->sex = $params['sex'];
-        $profile->phone_number = $params['phone_number'];
-        $profile->email = $params['email'];
-        $profile->experience = $params['experience'];
+            $profile->name = $params['name'];
+            $profile->user_name = $params['user_name'];
+            $profile->date_of_birth = $params['date_of_birth'];
+            $profile->sex = $params['sex'];
+            $profile->phone_number = $params['phone_number'];
+            $profile->address = $params['address'];
+            $profile->email = $params['email'];
+            $profile->education = $params['education'];
+            $profile->experience = $params['experience'];
+            $profile->city_id = $params['city_id'];
+            $profile->user_id = Auth::id();
 
-        if ($params['image']) {
-            $fileExtension = $params['image']->getClientOriginalExtension();
-            $fileName = time() . "_" . rand(0,99) . "." . $fileExtension;
-            $uploadPath = public_path('images/profile');
-            $params['image']->move($uploadPath, $fileName);
-            $image = 'images/profile/' . $fileName;
-            $profile->image = $image;
+            if ($params['image']) {
+                $fileExtension = $params['image']->getClientOriginalExtension();
+                $fileName = time() . "_" . rand(0,99) . "." . $fileExtension;
+                $uploadPath = public_path('images/profile');
+                $params['image']->move($uploadPath, $fileName);
+                $image = 'images/profile/' . $fileName;
+                $profile->image = $image;
+            }
+            $profile->save();
+
+            return response()->json([
+                "code" => 200,
+                "message" => "Save success"
+            ], 200);
+        } catch (\Exception $exception) {
+            return response()->json([
+                "code" => 400,
+                "message" => "Something went wrong!"
+            ], 200);
         }
-        $profile->save();
-        return $profile;
     }
 }

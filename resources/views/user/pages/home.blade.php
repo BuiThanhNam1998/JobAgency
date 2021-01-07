@@ -311,33 +311,5 @@
             let jobId = $(this).data('job');
             $('#jobIdApply').val(jobId);
         })
-        // show toast when apply
-        @if (\Session::has('success'))
-            $.toast({
-                text: "Apply success",
-                heading: 'Alert',
-                icon: 'success',
-                showHideTransition: 'fade',
-                allowToastClose: true,
-                hideAfter: 3000,
-                stack: 5,
-                position: 'bottom-right',
-                textAlign: 'left',
-                loader: false,
-            });
-        @elseif (\Session::has('errors'))
-        $.toast({
-            text: "{{session('errors')}}",
-            heading: 'Alert',
-            icon: 'warning',
-            showHideTransition: 'fade',
-            allowToastClose: true,
-            hideAfter: 3000,
-            stack: 5,
-            position: 'bottom-right',
-            textAlign: 'left',
-            loader: false,
-        });
-        @endif
     </script>
 @endsection

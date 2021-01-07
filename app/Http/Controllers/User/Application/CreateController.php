@@ -26,12 +26,8 @@ class CreateController extends Controller
             dd('die');
         }
         $result = $this->applicationService->store($params)->getData();
-        if ($result->code == 200) {
-            return redirect()->back()->with('success', $result->message);
-        }
-        else {
-            return redirect()->back()->with('errors', $result->message);
-        }
+        $success = ($result->code == 200) ? 1 : 0;
+        return redirect()->back()->with('message', $result->message)->with('success', $success);
     }
 
     public function getParams(Request $request)

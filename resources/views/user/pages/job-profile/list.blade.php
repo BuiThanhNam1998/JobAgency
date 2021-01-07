@@ -19,6 +19,11 @@
 
     <div class="products">
         <div class="container">
+            <div class="row form-group">
+                <div class="col-md-12">
+                    <a class="filled-button" href="{{route('user.profile.create')}}">Add job profile</a>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-8">
                     @foreach($profiles as $profile)
@@ -26,7 +31,10 @@
                             <div class="col-md-4">
                                 <div class="service-item">
                                     <a href="blog-details.html" class="services-item-image">
-                                        <img src="{{asset('assets/images/blog-1-370x270.jpg')}}" class="img-fluid" alt="">
+                                        <img src="{{($profile->image) ? asset($profile->image) : asset('images/avatar.png')}}"
+                                             class="img-fluid" alt="$profile->name"
+                                             style="width: 150px"
+                                        >
                                     </a>
                                 </div>
                             </div>

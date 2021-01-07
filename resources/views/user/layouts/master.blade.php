@@ -54,5 +54,21 @@
     <script src="{{asset('assets/js/owl.js')}}"></script>
 
     @yield('script')
+    <script>
+        @if (\Session::has('success'))
+            let icon = {{\Session::get('success')}} == 1 ? 'success' : 'warning';
+            $.toast({
+                text: "{{\Session::get('message')}}",
+                icon: icon,
+                showHideTransition: 'fade',
+                allowToastClose: true,
+                hideAfter: 3000,
+                stack: 5,
+                position: 'bottom-right',
+                textAlign: 'left',
+                loader: false,
+            });
+        @endif
+    </script>
   </body>
 </html>

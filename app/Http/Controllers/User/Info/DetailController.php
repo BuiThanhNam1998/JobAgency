@@ -1,22 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\User\Profile;
+namespace App\Http\Controllers\User\Job;
 
-use App\Services\ProfileService;
+use App\Services\JobService;
+use App\Services\CareerService;
+use App\Services\JobTypeService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use App\Models\City;
 
 class DetailController extends Controller
 {
-    protected $profileService;
+    protected $jobService;
+    protected $careerService;
+    protected $jobTypeService;
 
     public function __construct(
-        ProfileService $profileService
+        JobService $jobService,
+        CareerService $careerService,
+        JobTypeService $jobTypeService
     )
     {
-        $this->profileService = $profileService;
+        $this->jobService = $jobService;
+        $this->careerService = $careerService;
+        $this->jobTypeService = $jobTypeService;
     }
 
     public function main(Request $request)
@@ -26,10 +33,10 @@ class DetailController extends Controller
         if ($validator->fails()) {
             dd('die');
         }
-        $cities = City::all();
-        $profile = $this->profileService->getDetail($params);
-        return view('user.pages.job-profile.detail',
-            compact('profile', 'cities')
+
+        $job = $this->jobService->getDetail($params);
+        return view('user.pages.job.detail',
+            compact('job')
         );
     }
 
@@ -43,7 +50,7 @@ class DetailController extends Controller
     private function rules()
     {
         return [
-            'id' => 'exists:profiles,id',
+            'id' => 'integer',
         ];
     }
 
