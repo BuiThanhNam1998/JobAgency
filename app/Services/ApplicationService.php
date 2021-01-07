@@ -39,7 +39,7 @@ class ApplicationService {
             Application::create($params);
             return response()->json([
                 "code" => 200,
-                "message" => "Success"
+                "message" => "Apply success"
             ], 200);
         } catch (\Exception $exception) {
             return response()->json([

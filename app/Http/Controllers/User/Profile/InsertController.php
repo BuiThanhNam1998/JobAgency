@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
-class UpdateController extends Controller
+class InsertController extends Controller
 {
     protected $profileService;
 
@@ -33,7 +33,6 @@ class UpdateController extends Controller
     public function getParams(Request $request)
     {
         return [
-            'id' => $request->id,
             'name' => $request->name,
             'user_name' => $request->user_name,
             'date_of_birth' => $request->date_of_birth,
@@ -51,7 +50,6 @@ class UpdateController extends Controller
     private function rules()
     {
         return [
-            'id' => 'exists:profiles,id',
         ];
     }
 

@@ -27,76 +27,72 @@
                 </div>
                 <div class="col-md-12">
                     <div class="contact-form">
-                        <form id="contact" action="{{ route('user.profile.update', ['id' => $profile->id]) }}" method="post" enctype="multipart/form-data">
+                        <form id="contact" action="{{ route('user.profile.insert') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-8 col-md-8 col-sm-8">
                                     <div class="">
                                         <label class="label-profile-form" for="name">Profile Name</label>
                                         <fieldset>
-                                            <input name="name" type="text" value="{{$profile->name}}" class="form-control" id="name" placeholder="Profile Name" required="">
+                                            <input name="name" type="text" value="" class="form-control" id="name" placeholder="Profile Name" required="">
                                         </fieldset>
                                     </div>
                                     <div class="">
-                                        <label class="label-profile-form" for="user_name">Full Name</label>
+                                        <label class="label-profile-form" for="name">Full Name</label>
                                         <fieldset>
-                                            <input name="user_name" type="text" value="{{$profile->user_name}}" class="form-control" id="userName" placeholder="Full Name" required="">
+                                            <input name="user_name" type="text" value="" class="form-control" id="userName" placeholder="Full Name" required="">
                                         </fieldset>
                                     </div>
                                     <div class="">
                                         <label class="label-profile-form" for="dob">Date of Birth</label>
                                         <fieldset>
-                                            <input name="date_of_birth" type="date" value="{{$profile->date_of_birth}}" class="form-control" id="dob" required="">
+                                            <input name="date_of_birth" type="date" value="" class="form-control" id="dob" required="">
                                         </fieldset>
                                     </div>
                                     <div class="">
                                         <label class="label-profile-form">Sex</label>
                                         <select class="" id="sex" name="sex">
-                                            <option value="1" @if($profile->sex == 1) {{ 'selected' }} @endif>Male</option>
-                                            <option value="2" @if($profile->sex == 2) {{ 'selected' }} @endif>Female</option>
-                                            <option value="3" @if($profile->sex == 3) {{ 'selected' }} @endif>Others</option>
+                                            <option value="1">Male</option>
+                                            <option value="2">Female</option>
+                                            <option value="3">Others</option>
                                         </select>
                                     </div>
                                     <div class="">
                                         <label class="label-profile-form" for="phone">Phone Contact</label>
                                         <fieldset>
-                                            <input name="phone_number" value="{{$profile ->phone_number}}" type="text" class="form-control" id="phone" placeholder="Phone Contact" required="">
+                                            <input name="phone_number" value="" type="text" class="form-control" id="phone" placeholder="Phone Contact" required="">
                                         </fieldset>
                                     </div>
                                     <div class="">
                                         <label class="label-profile-form" for="email">Email</label>
                                         <fieldset>
-                                            <input name="email" value="{{$profile ->email}}" type="text" class="form-control" id="email" placeholder="E-Mail Address" required="">
+                                            <input name="email" value="" type="text" class="form-control" id="email" placeholder="E-Mail Address" required="">
                                         </fieldset>
                                     </div>
                                     <div class="">
                                         <label class="label-profile-form">City</label>
                                         <select class="" id="city" name="city_id">
                                             @foreach($cities as $city)
-                                                <option value="{{$city->id}}"
-                                                        {{$city->id == $profile->city_id ? 'selected' : ''}}
-                                                >
-                                                    {{$city->name}}
-                                                </option>
+                                                <option value="{{$city->id}}">{{$city->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="">
                                         <label  class="label-profile-form" for="address">Address</label>
                                         <fieldset>
-                                            <input name="address" value="{{$profile ->address}}" type="text" class="form-control" id="adr" placeholder="Address" required="">
+                                            <input name="address" value="" type="text" class="form-control" id="adr" placeholder="Address" required="">
                                         </fieldset>
                                     </div>
                                     <div class="">
                                         <label  class="label-profile-form" for="education">Education</label>
                                         <fieldset>
-                                            <input name="education" value="{{$profile ->education}}" type="text" class="form-control" id="education" placeholder="Education" required="">
+                                            <input name="education" value="" type="text" class="form-control" id="education" placeholder="Education" required="">
                                         </fieldset>
                                     </div>
                                     <div class="">
                                         <label class="label-profile-form" for="exp">Experiences</label>
                                         <fieldset>
-                                            <textarea name="experience"  rows="5" class="form-control" id="exp" placeholder="Experiences" required="">{{$profile ->experience}}</textarea>
+                                            <textarea name="experience"  rows="5" class="form-control" id="exp" placeholder="Experiences" required=""></textarea>
                                         </fieldset>
                                     </div>
                                     <div class="">
@@ -108,9 +104,9 @@
 
                                 <div class="col-lg-4 col-md-4 col-sm-4">
                                     <div class="avatar-and-title">
-                                        <img src="{{ asset($profile->image) }}"
+                                        <img src="{{ asset('images/avatar.png') }}"
                                              class="img-profile"
-                                             alt="{{$profile->user_name}}"
+                                             alt="Avatar"
                                              id="preview"
                                         >
                                         <h6 class="" style="margin-top: 15px;">Avatar</h6>

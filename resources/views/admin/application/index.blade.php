@@ -81,25 +81,21 @@
                         status_id: statusId,
                         application_id: applicationId
                     }
-                }).done(function() {
-                    alert("Success")
+                }).done(function(data) {
+                    let icon = data.code == '200' ? 'success' : 'warning';
+                    $.toast({
+                        text: data.message,
+                        icon: icon,
+                        showHideTransition: 'fade',
+                        allowToastClose: true,
+                        hideAfter: 3000,
+                        stack: 5,
+                        position: 'bottom-right',
+                        textAlign: 'left',
+                        loader: false,
+                    });
                 });
             })
-
-            @if (\Session::has('success'))
-                $.toast({
-                    text: "Apply success",
-                    heading: 'Alert',
-                    icon: 'success',
-                    showHideTransition: 'fade',
-                    allowToastClose: true,
-                    hideAfter: 3000,
-                    stack: 5,
-                    position: 'bottom-left',
-                    textAlign: 'left',
-                    loader: false,
-                });
-            @endif
         })
     </script>
     @endsection

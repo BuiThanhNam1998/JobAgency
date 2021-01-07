@@ -123,18 +123,27 @@ Route::group([
 });
 
 Route::group([
-    'middleware' => ['auth']
+    'middleware' => ['auth', 'role:1']
 ], function() {
 
     Route::group([
         'prefix' => 'profile',
     ], function() {
         Route::group([
+            'prefix' => 'user-info',
+            'namespace' => 'User\Info'
+        ], function() {
+            Route::get('/', 'IndexController@main')->name('user.info');
+            Route::post('/update', 'UpdateController@main')->name('user.info.update');
+        });
+
+        Route::group([
             'prefix' => 'job-profile',
             'namespace' => 'User\Profile'
         ], function() {
             Route::get('/list', 'ListController@main')->name('user.profile.list');
             Route::get('/detail/{id}', 'DetailController@main')->name('user.profile.detail');
+            Route::get('/create/', 'CreateController@main')->name('user.profile.create');
             Route::post('/insert/', 'InsertController@main')->name('user.profile.insert');
             Route::post('/update/{id}', 'UpdateController@main')->name('user.profile.update');
             Route::post('/destroy/{id}', 'DestroyController@main')->name('user.profile.destroy');
@@ -153,7 +162,7 @@ Route::group([
 });
 
 Route::group([
-    'middleware' => ['auth']
+    'middleware' => ['auth', 'role:2']
 ], function() {
 
     Route::group([
@@ -183,7 +192,7 @@ Route::group([
 });
 
 Route::group([
-    'middleware' => ['auth']
+    'middleware' => ['auth', 'role:3']
 ], function() {
 
     Route::group([

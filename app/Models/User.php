@@ -30,6 +30,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'password', 'remember_token',
     ];
 
+    const USER = 1;
+    const ADMIN = 2;
+    const EMPLOYER = 3;
+
     public function role()
     {
         return $this->belongsTo(Role::class);
@@ -43,6 +47,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function applications()
     {
         return $this->hasManyThrough('App\Models\Application', 'App\Models\Job');
+    }
+
+    public function hasRole($id, $role)
+    {
+        return User::where('role_id', $role)->where('id', $id)->first();
     }
 
 }
