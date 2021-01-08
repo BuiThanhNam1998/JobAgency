@@ -112,8 +112,13 @@ Route::get('/callback/{provider}', function (\Illuminate\Http\Request $request, 
 
 
 
-
-Route::get('/', 'User\PageController@getHome')->name('index');
+Route::group([
+    'namespace' => 'User'
+], function () {
+    Route::get('/', 'PageController@getHome')->name('index');
+    Route::get('about-us', 'PageController@getAboutUs')->name('about-us');
+    Route::get('contact-us', 'PageController@getContactUs')->name('contact-us');
+});
 
 Route::group([
     'prefix' => 'job'

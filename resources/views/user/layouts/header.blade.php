@@ -17,9 +17,13 @@
                         <a class="nav-link" href="{{route('job.list')}}">Jobs</a>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link" href="about-us.html">About us</a></li>
+                    <li class="nav-item {{ request()->routeIs('about-us') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{route('about-us')}}">About us</a>
+                    </li>
 
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item {{ request()->routeIs('contact-us') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{route('contact-us')}}">Contact Us</a>
+                    </li>
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

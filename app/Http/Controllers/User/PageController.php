@@ -39,4 +39,11 @@ class PageController extends Controller
             compact('newJobs', 'hotJobs', 'profiles')
         );
     }
+
+    public function getAboutUs() {
+        return view('user.pages.about');
+    }
+    public function getContactUs() {
+        return view('user.pages.contact');
+    }
 }
