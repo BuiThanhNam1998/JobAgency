@@ -58,155 +58,10 @@
   <div class="products">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
-           <div class="contact-form">
-              <form action="#">
-               <h5 style="margin-bottom: 15px">Type</h5>
-
-               <div>
-                    <label>
-                         <input type="checkbox">
-
-                         <small>Contract (5)</small>
-                    </label>
-               </div>
-
-               <div>
-                    <label>
-                         <input type="checkbox">
-
-                         <small>Full time (5)</small>
-                    </label>
-               </div>
-
-               <div>
-                    <label>
-                         <input type="checkbox">
-
-                         <small>Internship (5)</small>
-                    </label>
-               </div>
-
-               <br>
-
-               <h5 style="margin-bottom: 15px">Category</h5>
-
-               <div>
-                    <label>
-                         <input type="checkbox">
-
-                         <small>Accounting / Finance / Insurance Jobs (5)</small>
-                    </label>
-               </div>
-
-               <div>
-                    <label>
-                         <input type="checkbox">
-
-                         <small>Accounting / Finance / Insurance Jobs (5)</small>
-                    </label>
-               </div>
-
-               <div>
-                    <label>
-                         <input type="checkbox">
-
-                         <small>Accounting / Finance / Insurance Jobs (5)</small>
-                    </label>
-               </div>
-
-               <br>
-
-               <h5 style="margin-bottom: 15px">Career levels</h5>
-
-               <div>
-                    <label>
-                         <input type="checkbox">
-
-                         <small>Entry Level (5)</small>
-                    </label>
-               </div>
-
-               <div>
-                    <label>
-                         <input type="checkbox">
-
-                         <small>Entry Level (5)</small>
-                    </label>
-               </div>
-
-               <div>
-                    <label>
-                         <input type="checkbox">
-
-                         <small>Entry Level (5)</small>
-                    </label>
-               </div>
-
-               <br>
-
-               <h5 style="margin-bottom: 15px">Education levels</h5>
-
-               <div>
-                    <label>
-                         <input type="checkbox">
-
-                         <small>Associate Degree (5)</small>
-                    </label>
-               </div>
-
-               <div>
-                    <label>
-                         <input type="checkbox">
-
-                         <small>Associate Degree (5)</small>
-                    </label>
-               </div>
-
-               <div>
-                    <label>
-                         <input type="checkbox">
-
-                         <small>Associate Degree (5)</small>
-                    </label>
-               </div>
-
-               <br>
-
-
-               <h5 style="margin-bottom: 15px">Years of experience</h5>
-
-               <div>
-                    <label>
-                         <input type="checkbox">
-
-                          <small>&lt; 1 (5)</small>
-                    </label>
-               </div>
-
-               <div>
-                    <label>
-                         <input type="checkbox">
-
-                          <small>&lt; 1 (5)</small>
-                    </label>
-               </div>
-
-               <div>
-                    <label>
-                         <input type="checkbox">
-
-                          <small>&lt; 1 (5)</small>
-                    </label>
-               </div>
-          </form>
-           </div>
-        </div>
-
-        <div class="col-md-9">
+        <div class="col-md-12">
           <div class="row">
               @foreach($jobs as $job)
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="product-item">
                     <a href="{{route('job.detail', ['id' => $job->id])}}" title="{{$job->title}}">
                         <img src="{{asset($job->image)}}" alt="{{$job->title}}">
@@ -235,14 +90,8 @@
                 </div>
               @endforeach
 
-            <div class="col-md-12">
-              <ul class="pages">
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-              </ul>
+            <div class="col-md-12 main-pagination">
+                {!! $jobs->links() !!}
             </div>
           </div>
         </div>

@@ -1068,6 +1068,34 @@ footer .inner-content p a {
 	width: 100%;
 	text-align: center;
 }
+.main-pagination .pagination{
+    margin-top: 30px;
+    justify-content: center;
+}
+.main-pagination .pagination {
+    margin: 0px 5px;
+}
+.main-pagination .pagination .page-link{
+    width: 44px;
+    height: 44px;
+    display: inline-block;
+    line-height: 42px;
+    border: 1px solid #eee;
+    font-size: 15px;
+    font-weight: 700;
+    color: #121212;
+    padding: 0;
+    text-align: center;
+    transition: all .3s;
+}
+.main-pagination .pagination .page-item {
+    margin: 0 5px;
+}
+.main-pagination .pagination .page-item.active .page-link {
+    background-color: #f33f3f;
+    border-color: #f33f3f;
+    color: #fff;
+}
 
 
 /* Responsive Style */
