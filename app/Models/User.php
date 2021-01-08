@@ -36,6 +36,9 @@ class User extends Authenticatable
     const ADMIN = 2;
     const EMPLOYER = 3;
 
+    const ACTIVE = 1;
+    const BLOCK = 0;
+
     public function role()
     {
         return $this->belongsTo(Role::class);

@@ -9,8 +9,7 @@
                     <a href="#"><i class="fa fa-users fa-fw"></i> Người dùng<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Danh sách người dùng</a>
-                            <a href="#">Thêm người dùng mới</a>
+                            <a href="{{route('admin.user.list')}}">Danh sách người dùng</a>
                         </li>
                     </ul>
                 </li>

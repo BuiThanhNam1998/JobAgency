@@ -192,6 +192,7 @@ Route::group([
             Route::get('/list', 'ListController@main')->name('admin.user.list');
             Route::get('/detail/{id}', 'DetailController@main')->name('admin.user.detail');
             Route::post('/update/{id}', 'UpdateController@main')->name('admin.user.update');
+            Route::post('/change-status', 'ChangeStatusController@main')->name('admin.user.change.status');
         });
     });
 });

@@ -52,4 +52,23 @@ class UserService {
         return User::where('id', $params['id'])
             ->delete();
     }
+
+    public function changeStatus($params)
+    {
+        try {
+            $user = User::find($params['user_id']);
+            $user->status = ($user->status == User::ACTIVE) ? User::BLOCK : User::ACTIVE;
+            $user->save();
+            return response()->json([
+                "code" => 200,
+                "status" => $user->status,
+                "message" => "Change status success"
+            ], 200);
+        } catch (\Exception $exception) {
+            return response()->json([
+                "code" => 400,
+                "message" => "Something went wrong!"
+            ], 200);
+        }
+    }
 }

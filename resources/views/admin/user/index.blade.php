@@ -40,7 +40,7 @@
                     <th>Email</th>
                     <th>Vai trò</th>
                     <th>Sửa</th>
-                    <th>Xóa</th>
+                    <th>Block</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -55,12 +55,9 @@
                             <a href="{{route('admin.user.detail',$user->id)}}">Sửa</a>
                         </td>
                         <td class="center">
-                            <form action="#" method="POST">
-                                @csrf
-                                <button type="submit">
-                                    <i class="fa fa-trash-o  fa-fw"></i>Xóa
-                                </button>
-                            </form>
+                            <button type="button" class="status-user" data-id="{{$user->id}}">
+                                {{$user->status ? 'Active' : 'Block'}}
+                            </button>
                         </td>
                     </tr>
                     @endforeach
@@ -69,4 +66,35 @@
         </div>
         <!-- /.row -->
     </div>
+    <script>
+        $(document).ready(function () {
+            $('.status-user').click(function () {
+                let userId = $(this).data("id")
+                $.ajax({
+                    method: "POST",
+                    context: $(this),
+                    url: "{{route('admin.user.change.status')}}",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        user_id: userId,
+                    }
+                }).done(function(data) {
+                    let icon = data.code == '200' ? 'success' : 'warning';
+                    $.toast({
+                        text: data.message,
+                        icon: icon,
+                        showHideTransition: 'fade',
+                        allowToastClose: true,
+                        hideAfter: 3000,
+                        stack: 5,
+                        position: 'bottom-right',
+                        textAlign: 'left',
+                        loader: false,
+                    });
+                    let $statusText = (data.status == 1) ? 'Active' : 'Block';
+                    $(this).text($statusText);
+                });
+            })
+        })
+    </script>
 @endsection

@@ -15,12 +15,10 @@ class JobService {
     public function getList($params)
     {
         $perPage = isset($params['per_page']) ? trim($params['per_page']) : config('setup.job.number_display_home');
-        $currentPage = isset($params['current_page']) ? trim($params['current_page']) : 1;
         $careerId = isset($params['career_id']) ? $params['career_id'] : '';
         $typeId = isset($params['type_id']) ? $params['type_id'] : '';
         $cityId = isset($params['city_id']) ? $params['city_id'] : '';
         $search = isset($params['search']) ? trim($params['search']) : '';
-        //dd($search);
         $sort = isset($params['sort']) ? trim($params['sort']) : '';
         $order = isset($params['order']) ? trim($params['order']) : '';
 
@@ -41,7 +39,7 @@ class JobService {
             ->when(!empty($sort) && !empty($order), function ($query) use ($sort, $order) {
                 return $query->orderBy($sort, $order);
             })
-            ->paginate($perPage, ['*'], 'page', $currentPage);
+            ->paginate($perPage);
     }
 
     public function getDetail($params)

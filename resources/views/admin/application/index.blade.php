@@ -36,7 +36,7 @@
                                 </td>
                                 <td>{{$application->profile->name}}</td>
                                 <td>
-                                    <select name="status" id="status" data-id="{{$application->id}}">
+                                    <select name="status" class="status-application" data-id="{{$application->id}}">
                                         @foreach($applicationStatuses as $applicationStatus)
                                             <option
                                                 value="{{$applicationStatus->id}}"
@@ -70,7 +70,7 @@
     </div>
     <script>
         $(document).ready(function () {
-            $('#status').change(function () {
+            $('.status-application').change(function () {
                 let statusId = $(this).val();
                 let applicationId = $(this).data("id")
                 $.ajax({
