@@ -37,7 +37,11 @@
                                aria-expanded="false">{{ Auth::user()->name }}
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Profile</a>
+                                @if(Auth::user()->hasRole(Auth::id(), 3))
+                                    <a class="dropdown-item" href="{{ route('employer.job.list') }}">Manage</a>
+                                @elseif(Auth::user()->hasRole(Auth::id(), 2))
+                                    <a class="dropdown-item" href="{{ route('admin.user.list') }}">Manage</a>
+                                @endif
                                 <a class="dropdown-item" href="{{ route('user.profile.list') }}">Job profiles</a>
                                 <a class="dropdown-item" href="{{ route('user.application.list') }}">Applications</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"

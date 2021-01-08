@@ -47,7 +47,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Công ty cổ phần Phần mềm CADS</a>
+            <a class="navbar-brand" href="/">Job Angency</a>
         </div>
         <!-- /.navbar-header -->
 
