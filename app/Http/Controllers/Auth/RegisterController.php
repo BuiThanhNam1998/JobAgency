@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\User;
-use App\vaitro;
+use App\Models\User;
+use App\Models\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -54,9 +54,15 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255','min:5'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:user'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'role_id' => ['required', 'integer', 'exists:roles,id'],
         ]);
+    }
+
+    public function showRegistrationForm() {
+        $roles = Role::where('id', '!=', Role::ADMIN)->get();
+        return view ('auth.register')->with(compact('roles'));
     }
 
     /**
@@ -67,11 +73,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $vaitros = vaitro::query()->get()->pluck('id', 'ten');
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'vaitro_id' => $vaitros['Ứng viên'],
+            'role_id' => $data['role_id'],
             'password' => Hash::make($data['password']),
         ]);
     }

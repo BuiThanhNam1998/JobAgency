@@ -226,6 +226,6 @@ Route::group([
 
 
 
-Auth::routes();
+Auth::routes(['verify' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
