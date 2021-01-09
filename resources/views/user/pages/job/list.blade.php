@@ -76,14 +76,14 @@
                       <h4>
                           <small>
                               <i class="fa fa-briefcase"></i> {{$job->career->name}} <br>
-                              <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong>
+                              <strong><i class="fa fa-building"></i> {{$job->company_name}}</strong>
                           </small>
                       </h4>
 
                       <small>
-                           <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Posted on"><i class="fa fa-calendar"></i> {{$job->post_date}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                            <strong title="Type"><i class="fa fa-file"></i> {{$job->type->name}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                           <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+                           <strong title="Location"><i class="fa fa-map-marker"></i> {{$job->city->name}}</strong>
                       </small>
                     </div>
                   </div>

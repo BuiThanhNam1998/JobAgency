@@ -6,21 +6,21 @@
             <h5>About Us</h5>
               <ul class="footer-menu">
                 <li><a href="#">Terms</a></li>
-                <li><a href="#">Teams</a></li>
+                <li><a href="#">Privacy Policy</a></li>
                 <li><a href="#">Help</a></li>
-                <li><a href="#">Services</a></li>
+                <li><a href="#">FAQ</a></li>
               </ul>
           </div>
 
         </div>
         <div class="col-md-3">
           <div class="footer-item">
-            <h5>About Us</h5>
+            <h5>Contact Us</h5>
               <ul class="footer-menu">
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Teams</a></li>
-                <li><a href="#">Help</a></li>
-                <li><a href="#">Services</a></li>
+                <li><a href="#">Phone</a></li>
+                <li><a href="#">Email</a></li>
+                <li><a href="#">Tax</a></li>
+                <li><a href="#">Location</a></li>
               </ul>
           </div>
         </div>
@@ -29,20 +29,20 @@
             <h5>About Us</h5>
               <ul class="footer-menu">
                 <li><a href="#">Terms</a></li>
-                <li><a href="#">Teams</a></li>
+                <li><a href="#">Privacy Policy</a></li>
                 <li><a href="#">Help</a></li>
-                <li><a href="#">Services</a></li>
+                <li><a href="#">FAQ</a></li>
               </ul>
           </div>
         </div>
         <div class="col-md-3">
           <div class="footer-item">
-            <h5>About Us</h5>
+            <h5>Contact Us</h5>
               <ul class="footer-menu">
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Teams</a></li>
-                <li><a href="#">Help</a></li>
-                <li><a href="#">Services</a></li>
+                <li><a href="#">Phone</a></li>
+                <li><a href="#">Email</a></li>
+                <li><a href="#">Tax</a></li>
+                <li><a href="#">Location</a></li>
               </ul>
           </div>
         </div>

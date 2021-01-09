@@ -24,12 +24,14 @@ class PageController extends Controller
     {
         $paramNewJobs = [
             'sort' => 'created_at',
-            'order' => 'desc'
-        ];
+            'order' => 'desc',
+            'per_page'=> '3'
+                ];
 
         $paramHotJobs = [
             'sort' => 'salary',
-            'order' => 'desc'
+            'order' => 'desc',
+            'per_page'=> '3'
         ];
 
         $newJobs = $this->jobService->getList($paramNewJobs);

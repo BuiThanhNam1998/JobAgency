@@ -45,7 +45,7 @@ class JobService {
     public function getDetail($params)
     {
         return Job::select(['*'])
-            ->with(['career', 'type'])
+            ->with(['career', 'type', 'city'])
             ->where('id', $params['id'])
             ->first();
     }
