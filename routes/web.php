@@ -161,6 +161,7 @@ Route::group([
             Route::get('/list', 'ListController@main')->name('user.application.list');
             Route::get('/detail', 'DetailController@main')->name('user.application.detail');
             Route::post('/store', 'CreateController@main')->name('user.application.store');
+            Route::post('/cancel', 'CancelController@main')->name('user.application.cancel');
         });
 
     });

@@ -34,7 +34,7 @@
                                 <div class="down-content">
                                     <h5>
                                         Job:
-                                        <a href="{{ route('user.application.detail', ['id' => $application->id]) }}">
+                                        <a href="{{ route('job.detail', ['id' => $application->job->id]) }}">
                                             {{ $application->job->title }}
                                         </a>
                                     </h5>
@@ -45,9 +45,13 @@
                                         </a>
                                     </h5>
                                     <h6>Status: {{ $application->status->name }}</h6>
-                                    <form action="" action="POST">
-                                        <button type="submit" style="cursor: pointer">Cancel</button>
-                                    </form>
+                                    @if($application->status->can_cancel == 1)
+                                        <button type="button"
+                                                class="cancel-application-user"
+                                                style="cursor: pointer"
+                                                data-id="{{$application->id}}"
+                                        >Cancel</button>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -83,4 +87,38 @@
         </div>
     </div>
 
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function () {
+            $('.cancel-application-user').click(function () {
+                let context = $(this).closest('.row');
+                let applicationId = $(this).data("id")
+                $.ajax({
+                    method: "POST",
+                    url: "{{route('user.application.cancel')}}",
+                    context : context,
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        application_id: applicationId
+                    }
+                }).done(function(data) {
+                    let icon = data.code == '200' ? 'success' : 'warning';
+                    $.toast({
+                        text: data.message,
+                        icon: icon,
+                        showHideTransition: 'fade',
+                        allowToastClose: true,
+                        hideAfter: 3000,
+                        stack: 5,
+                        position: 'bottom-right',
+                        textAlign: 'left',
+                        loader: false,
+                    });
+                    $(this).remove();
+                });
+            })
+        })
+    </script>
 @endsection
