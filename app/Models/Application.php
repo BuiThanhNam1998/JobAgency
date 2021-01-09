@@ -2,14 +2,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Application extends Model
 {
+    use SoftDeletes;
+
     protected $table = 'applications';
     protected $fillable = [
         'job_id',
         'profile_id',
-        'status_id'
+        'status_id',
+        'job_profile'
     ];
 
     public function job()
