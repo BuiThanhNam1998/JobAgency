@@ -56,7 +56,7 @@
 
                     <h4>
                         <small><i class="fa fa-briefcase"></i> {{$job->career->name}} <br>
-                        <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small>
+                        <strong><i class="fa fa-building"></i> {{$job->company_name}}</strong></small>
                     </h4>
                     <p>
                         <button data-toggle="modal" data-target="#applyModal" class="filled-button btn-apply" data-job="{{ $job->id }}">
@@ -71,7 +71,7 @@
                         <strong title="Type">
                             <i class="fa fa-file"></i> {{$job->type->name}}
                         </strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+                        <strong title="Location"><i class="fa fa-map-marker"></i> {{$job->city->name}}</strong>
                     </small>
                   </div>
                 </div>
@@ -112,7 +112,7 @@
 
                               <h4>
                                   <small><i class="fa fa-briefcase"></i> {{$job->career->name}} <br>
-                                      <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small>
+                                      <strong><i class="fa fa-building"></i> {{$job->company_name}}</strong></small>
                               </h4>
                               <p>
                                   <button data-toggle="modal" data-target="#applyModal" class="filled-button btn-apply" data-job="{{ $job->id }}">
@@ -127,7 +127,7 @@
                                   <strong title="Type">
                                       <i class="fa fa-file"></i> {{$job->type->name}}
                                   </strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                  <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+                                  <strong title="Location"><i class="fa fa-map-marker"></i> {{$job->city->name}}</strong>
                               </small>
                           </div>
                       </div>
@@ -148,12 +148,15 @@
           </div>
           <div class="col-md-6">
             <div class="left-content">
-              <p>Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit. Explicabo, esse consequatur alias repellat in excepturi inventore ad <a href="#">asperiores</a> tempora ipsa. Accusantium tenetur voluptate labore aperiam molestiae rerum excepturi minus in pariatur praesentium, corporis, aliquid dicta.</p>
+              <p>Job Agency Company  provides a range of Information Technology services designed for business productivity. From expert installation, outsourcing and implementation to Hosted Solutions.
+              </p>
+              <p>Founded in June 2001 and headquartered in Budapest Hungary, in order to help companies with their IT solutions. Our initial focus was providing complete information technology solutions for companies.
+              </p>
               <ul class="featured-list">
-                <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                <li><a href="#">Consectetur an adipisicing elit</a></li>
-                <li><a href="#">It aquecorporis nulla aspernatur</a></li>
-                <li><a href="#">Corporis, omnis doloremque</a></li>
+                <li><a href="#">Lower their IT service costs</a></li>
+                <li><a href="#">Increase productivity and efficiency</a></li>
+                <li><a href="#">Secure their business platform for today and the future</a></li>
+                <li><a href="#">Gain peace of mind knowing their IT services are in trusted hands.</a></li>
               </ul>
               <a href="{{route('about-us')}}" class="filled-button">Read More</a>
             </div>
@@ -252,8 +255,8 @@
             <div class="inner-content">
               <div class="row">
                 <div class="col-md-8">
-                  <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
+                  <h4>Contact us  connects powerful business intelligence with brand-tailored solutions</h4>
+                  <p>We can be counted on to help your brand succeed.</p>
                 </div>
                 <div class="col-lg-4 col-md-6 text-right">
                   <a href="{{route('contact-us')}}" class="filled-button">Contact Us</a>
