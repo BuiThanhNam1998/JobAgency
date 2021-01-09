@@ -40,7 +40,7 @@
                                     </h5>
                                     <h5>
                                         Profile:
-                                        <a href="{{ route('user.application.detail', ['id' => $application->id]) }}">
+                                        <a href="{{ route('user.profile.detail', ['id' => $application->profile->id]) }}">
                                             {{ $application->profile->name }}
                                         </a>
                                     </h5>
