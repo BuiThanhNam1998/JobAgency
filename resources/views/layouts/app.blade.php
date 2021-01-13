@@ -18,6 +18,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        span.invalid-feedback {
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
