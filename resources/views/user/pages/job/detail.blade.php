@@ -43,7 +43,9 @@
         <div class="col-md-3 col-sm-4">
           <div class="contact-form">
             <div class="form-group">
-              <button type="submit" class="filled-button btn-block">Apply for this job</button>
+                <button data-toggle="modal" data-target="#applyModal" class="filled-button btn-apply" data-job="{{ $job->id }}">
+                    Apply for this job
+                </button>
             </div>
           </div>
 
@@ -139,5 +141,66 @@
       </div>
     </div>
   </div>
-
+ @auth
+     <!-- Modal -->
+     <div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-lg" role="document">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <p class="modal-title modal-title-apply">
+                         Bạn đang ứng tuyển cho vị trí <b> {{ $job->title }}</b>
+                     </p>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                     </button>
+                 </div>
+                 <div class="modal-body">
+                     <div class="contact-form">
+                         <p class="modal-title-apply">Chọn profile của bạn</p>
+                         <form action="{{ route('user.application.store') }}" method="POST" class="apply-form">
+                             @csrf
+                             <input type="hidden" name="job_id" id="jobIdApply">
+                             @foreach($profiles as $profile)
+                                 <div class="form-check">
+                                     <label class="form-check-label">
+                                         <input type="radio" class="form-check-input" name="profile_id" value="{{ $profile->id }}">
+                                         {{ $profile->name }}
+                                     </label>
+                                 </div>
+                             @endforeach
+                             <button type="submit" class="btn btn-primary filled-button modal-btn-apply">Apply</button>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ @else
+     <!-- Modal -->
+     <div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-lg" role="document">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Login to apply</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                     </button>
+                 </div>
+                 <div class="modal-body">
+                     <div class="contact-form">
+                         <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ @endauth
+@endsection
+@section('script')
+    <script>
+        $('.btn-apply').click(function () {
+            let jobId = $(this).data('job');
+            $('#jobIdApply').val(jobId);
+        })
+    </script>
 @endsection
