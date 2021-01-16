@@ -135,14 +135,6 @@ Route::group([
         'prefix' => 'profile',
     ], function() {
         Route::group([
-            'prefix' => 'user-info',
-            'namespace' => 'User\Info'
-        ], function() {
-            Route::get('/', 'IndexController@main')->name('user.info');
-            Route::post('/update', 'UpdateController@main')->name('user.info.update');
-        });
-
-        Route::group([
             'prefix' => 'job-profile',
             'namespace' => 'User\Profile'
         ], function() {

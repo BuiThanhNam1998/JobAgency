@@ -6,6 +6,7 @@ use App\Services\JobService;
 use App\Services\CareerService;
 use App\Services\JobTypeService;
 use App\Services\CityService;
+use App\Services\ProfileService;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,18 +18,21 @@ class ListController extends Controller
     protected $jobService;
     protected $careerService;
     protected $jobTypeService;
+    protected $profileService;
 
     public function __construct(
         CityService $cityService,
         JobService $jobService,
         CareerService $careerService,
-        JobTypeService $jobTypeService
+        JobTypeService $jobTypeService,
+        ProfileService $profileService
     )
-    { 
+    {
         $this->jobService = $jobService;
         $this->cityService = $cityService;
         $this->careerService = $careerService;
         $this->jobTypeService = $jobTypeService;
+        $this->profileService = $profileService;
     }
 
     public function main(Request $request)
@@ -43,9 +47,10 @@ class ListController extends Controller
         $careers = $this->careerService->getAll();
         $jobTypes = $this->jobTypeService->getAll();
         $cities = $this->cityService->getAll();
-        
+        $profiles = $this->profileService->getList();
+
         return view('user.pages.job.list',
-            compact('careers', 'jobs', 'jobTypes', 'cities', 'params')
+            compact('careers', 'jobs', 'jobTypes', 'cities', 'params', 'profiles')
         );
     }
 
