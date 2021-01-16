@@ -7,8 +7,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-content">
-                        <h4>Lorem ipsum dolor</h4>
-                        <h2>Contact Us</h2>
+                        <h4>Liên hệ ngay</h4>
+                        <h2>Cùng nhau phát triển</h2>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <h2>Our Location on Maps</h2>
+                        <h2>Vị trí của chúng tôi</h2>
                     </div>
                 </div>
                 <div class="col-md-8">

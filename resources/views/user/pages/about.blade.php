@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-content">
-                        <h4>about us</h4>
-                        <h2>our company</h2>
+                        <h4>Về chúng tôi</h4>
+                        <h2>Thông tin công ty</h2>
                     </div>
                 </div>
             </div>

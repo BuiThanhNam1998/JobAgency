@@ -1,7 +1,7 @@
 <header class="">
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="{{route('index')}}"><h2>Job Agency <em>Website</em></h2></a>
+            <a class="navbar-brand" href="{{route('index')}}"><h2>Job <em>Agency</em></h2></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -42,12 +42,12 @@
                             </a>
                             <div class="dropdown-menu">
                                 @if(Auth::user()->hasRole(Auth::id(), 3))
-                                    <a class="dropdown-item" href="{{ route('employer.job.list') }}">Manage</a>
+                                    <a class="dropdown-item" href="{{ route('employer.job.list') }}">Quản lý</a>
                                 @elseif(Auth::user()->hasRole(Auth::id(), 2))
-                                    <a class="dropdown-item" href="{{ route('admin.user.list') }}">Manage</a>
+                                    <a class="dropdown-item" href="{{ route('admin.user.list') }}">Quản lý</a>
                                 @endif
-                                <a class="dropdown-item" href="{{ route('user.profile.list') }}">Job profiles</a>
-                                <a class="dropdown-item" href="{{ route('user.application.list') }}">Applications</a>
+                                <a class="dropdown-item" href="{{ route('user.profile.list') }}">Hồ sơ</a>
+                                <a class="dropdown-item" href="{{ route('user.application.list') }}">Đơn ứng tuyển</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

@@ -79,12 +79,11 @@
                               <strong><i class="fa fa-building"></i> {{$job->company_name}}</strong>
                           </small>
                       </h4>
-                    <p>
+                      <p>
                         <button data-toggle="modal" data-target="#applyModal" class="filled-button btn-apply" data-job="{{ $job->id }}">
                             Apply
                         </button>
                     </p>
-
                       <small>
                            <strong title="Posted on"><i class="fa fa-calendar"></i> {{$job->post_date}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                            <strong title="Type"><i class="fa fa-file"></i> {{$job->type->name}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;

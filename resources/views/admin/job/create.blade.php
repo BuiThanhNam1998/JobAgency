@@ -34,6 +34,33 @@
                         </script>
                     </div>
                     <div class="form-group">
+                        <label>Tên công ty</label>
+                        <input class="form-control" name="company_name" placeholder="Nhập tên người tuyển dụng" />
+                    </div>
+                    <div class="form-group">
+                        <label>* Mô tả về công ty</label>
+                        <textarea name="company_des" id="company_des" rows="10" cols="80"></textarea>
+                        <script>
+                            CKEDITOR.replace( 'company_des' );
+                        </script>
+                    </div>  
+                    <div class="form-group">
+                        <label>Tên người tuyển dụng</label>
+                        <input class="form-control" name="employer_name" placeholder="Nhập tên người tuyển dụng" />
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        <input class="form-control" name="phone" placeholder="Nhập số điện thoại " />
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" name="email" placeholder="Nhập email " />
+                    </div>
+                    <div class="form-group">
+                        <label>Website</label>
+                        <input class="form-control" name="website" placeholder="Nhập tên website" />
+                    </div>
+                    <div class="form-group">
                         <label>Nhập mức lương tối thiểu</label>
                         <input class="form-control" name="salary" placeholder="Nhập mức lương tối thiểu " />
                     </div>

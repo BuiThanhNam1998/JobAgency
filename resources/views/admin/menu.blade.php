@@ -14,7 +14,7 @@
                     </ul>
                 </li>
 
-                <li>
+                {{-- <li>
                     <a href="#"><i class="fas fa-tasks"></i> Trạng thái hồ sơ<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         @if(auth()->user()->role->name == 'Quản trị viên')
@@ -24,9 +24,9 @@
                             </li>
                         @endif
                     </ul>
-                </li>
+                </li> --}}
 
-                <li>
+                {{-- <li>
                     <a href="#"><i class="fas fa-tasks"></i> Trạng thái tin tuyển dụng<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         @if(auth()->user()->role->name == 'Quản trị viên')
@@ -36,12 +36,12 @@
                             </li>
                         @endif
                     </ul>
-                </li>
+                </li> --}}
 
                 <li>
                     <a href="#"><i class="fas fa-code-branch"></i> Ngành nghề, lĩnh vực<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        @if(auth()->user()->role->name == 'Quản trị viên')
+                        @if($user->hasRole($user->id, 2))
                             <li>
                                 <a href="{{route('admin.career.list')}}">Danh sách các ngành</a>
                                 <a href="{{route('admin.career.create')}}">Thêm ngành mới</a>
@@ -50,7 +50,7 @@
                     </ul>
                 </li>
 
-                <li>
+                {{-- <li>
                     <a href="#"><i class="fa fa-cubes"></i> Vai trò<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         @if(auth()->user()->role->name == 'Quản trị viên')
@@ -60,9 +60,9 @@
                             </li>
                         @endif
                     </ul>
-                </li>
+                </li> --}}
 
-                <li>
+                {{-- <li>
                     <a href="#"><i class="fas fa-city"></i> Thành phố<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         @if(auth()->user()->role->name == 'Quản trị viên')
@@ -72,10 +72,10 @@
                             </li>
                         @endif
                     </ul>
-                </li>
+                </li> --}}
 
             @endif
-            @if($user->hasRole($user->id, 2) || $user->hasRole($user->id, 3))
+            @if($user->hasRole($user->id, 3))
                 <li>
                     <a href="#"><i class="fas fa-sign"></i> Tin tuyển dụng<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -91,7 +91,7 @@
                     <a href="#"><i class="fas fa-sign"></i>Đơn ứng tuyển<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="{{route('employer.application.list')}}">Danh sách tin tuyển dụng</a>
+                            <a href="{{route('employer.application.list')}}">Danh sách đơn ứng tuyển</a>
                         </li>
                     </ul>
                 </li>

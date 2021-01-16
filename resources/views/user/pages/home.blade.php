@@ -7,20 +7,20 @@
       <div class="owl-banner owl-carousel">
         <div class="banner-item-01">
           <div class="text-content">
-            <h4>Find your car today!</h4>
-            <h2>Lorem ipsum dolor sit amet</h2>
+            <h4>Tìm kiếm công việc ngay</h4>
+            <h2>Hàng ngàn công việc hấp dẫn</h2>
           </div>
         </div>
         <div class="banner-item-02">
           <div class="text-content">
-            <h4>Fugiat Aspernatur</h4>
-            <h2>Laboriosam reprehenderit ducimus</h2>
+            <h4>Bạn đang tìm kiếm trang web tuyển dụng</h4>
+            <h2>Website tuyển dụng hàng đầu</h2>
           </div>
         </div>
         <div class="banner-item-03">
           <div class="text-content">
-            <h4>Saepe Omnis</h4>
-            <h2>Quaerat suscipit unde minus dicta</h2>
+            <h4>Cùng nhau phát triển</h4>
+            <h2>Cùng chúng tôi phát triển website</h2>
           </div>
         </div>
       </div>
@@ -32,9 +32,9 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>New Jobs</h2>
+              <h2>Mới đăng tuyển</h2>
               <a href="{{route('job.list', ['sort' => 'created_at', 'order' => 'desc'])}}">
-                  view more <i class="fa fa-angle-right"></i>
+                  xem thêm <i class="fa fa-angle-right"></i>
               </a>
             </div>
           </div>
@@ -88,9 +88,9 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>Hot Jobs</h2>
+              <h2>Việc làm hấp dẫn</h2>
               <a href="{{route('job.list', ['sort' => 'salary', 'order' => 'desc'])}}">
-                  view more <i class="fa fa-angle-right"></i>
+                  xem thêm <i class="fa fa-angle-right"></i>
               </a>
             </div>
           </div>
@@ -143,7 +143,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>About Us</h2>
+              <h2>Về chúng tôi</h2>
             </div>
           </div>
           <div class="col-md-6">
@@ -175,9 +175,9 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>Happy Clients</h2>
+              <h2>Phản hồi người dùng</h2>
 
-              <a href="testimonials.html">read more <i class="fa fa-angle-right"></i></a>
+              <a href="testimonials.html">đọc thêm<i class="fa fa-angle-right"></i></a>
             </div>
           </div>
           <div class="col-md-12">
@@ -255,11 +255,11 @@
             <div class="inner-content">
               <div class="row">
                 <div class="col-md-8">
-                  <h4>Contact us  connects powerful business intelligence with brand-tailored solutions</h4>
-                  <p>We can be counted on to help your brand succeed.</p>
+                  <h4>Liên hệ với chúng tôi để cùng nhau xây dựng và phát triển</h4>
+                  <p>Chúng tôi luôn sẵn sàng có mặt bất cứ khi nào bạn cần</p>
                 </div>
                 <div class="col-lg-4 col-md-6 text-right">
-                  <a href="{{route('contact-us')}}" class="filled-button">Contact Us</a>
+                  <a href="{{route('contact-us')}}" class="filled-button">Liên hệ ngay</a>
                 </div>
               </div>
             </div>
