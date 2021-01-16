@@ -34,7 +34,7 @@
               <h5>{{$job->title}}</h5>
             </div>
 
-            <p>{{$job->description}}</p>
+            <p>{!! $job->description !!}</p>
 
             <br>
             <br>
@@ -79,7 +79,7 @@
                  <i class="fa fa-map-marker"></i> {{$job->city->name}}
             </p>
 
-             <p>{{$job->company_des}}</p>
+             <p> {!! $job->company_des !!}</p>
         </div>
 
         <div class="col-md-3">
@@ -93,7 +93,9 @@
 
               <br>
 
-              <strong>{{$job->employer_name}}</strong>
+              <strong>
+                <a href="#">{{$job->employer_name}}</a>
+              </strong>
             </p>
 
             <p>
@@ -102,7 +104,7 @@
               <br>
 
               <strong>
-                <a href="tel:123-456-789">{{$job->phone}}</a>
+                <a href="#">{{$job->phone}}</a>
               </strong>
             </p>
 
@@ -112,7 +114,7 @@
               <br>
 
               <strong>
-                <a href="tel:456789123">{{$job->phone}}</a>
+                <a href="#">{{$job->phone}}</a>
               </strong>
             </p>
 

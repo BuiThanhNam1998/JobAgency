@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Employer\Job;
+namespace App\Http\Controllers\Employer\Application;
 
 use App\Services\JobService;
 

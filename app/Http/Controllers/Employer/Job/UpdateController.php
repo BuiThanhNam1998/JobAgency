@@ -46,7 +46,12 @@ class UpdateController extends Controller
             'type_id' => $request->type_id,
             'city_id' => $request->city_id,
             'post_date' => $request->post_date,
-            'image' => $request->image
+            'image' => $request->image,
+            'company_name' => $request->company_name,
+            'company_des' => $request->company_des,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'website' => $request->website
         ];
     }
 

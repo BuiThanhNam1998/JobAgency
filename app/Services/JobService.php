@@ -69,6 +69,12 @@ class JobService {
         $job->type_id = $params['type_id'];
         $job->city_id = $params['city_id'];
         $job->post_date = $params['post_date'];
+        $job->company_des = $params['company_des'];
+        $job->company_name = $params['company_name'];
+        $job->employer_name = $params['employer_name'];
+        $job->phone = $params['phone'];
+        $job->email = $params['email'];
+        $job->website = $params['website'];
         $job->user_id = Auth::id();
         if ($params['image']) {
             $fileExtension = $params['image']->getClientOriginalExtension();

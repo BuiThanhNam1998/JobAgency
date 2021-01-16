@@ -42,12 +42,12 @@
                             </a>
                             <div class="dropdown-menu">
                                 @if(Auth::user()->hasRole(Auth::id(), 3))
-                                    <a class="dropdown-item" href="{{ route('employer.job.list') }}">Manage</a>
+                                    <a class="dropdown-item" href="{{ route('employer.job.list') }}">Quản lý</a>
                                 @elseif(Auth::user()->hasRole(Auth::id(), 2))
-                                    <a class="dropdown-item" href="{{ route('admin.user.list') }}">Manage</a>
+                                    <a class="dropdown-item" href="{{ route('admin.user.list') }}">Quản lý</a>
                                 @endif
-                                <a class="dropdown-item" href="{{ route('user.profile.list') }}">Job profiles</a>
-                                <a class="dropdown-item" href="{{ route('user.application.list') }}">Applications</a>
+                                <a class="dropdown-item" href="{{ route('user.profile.list') }}">Hồ sơ</a>
+                                <a class="dropdown-item" href="{{ route('user.application.list') }}">Đơn ứng tuyển</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
